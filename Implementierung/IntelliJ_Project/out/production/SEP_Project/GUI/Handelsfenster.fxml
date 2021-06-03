@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<Pane xmlns:fx="http://javafx.com/fxml" depthTest="DISABLE" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity"
+      minWidth="-Infinity" mouseTransparent="false" prefHeight="503.0"
+      prefWidth="576.0" style="-fx-border-color: black; -fx-border-width: 2;"
+      xmlns="http://javafx.com/javafx" fx:controller="GUI.HandelController">
+    <children>
+        <Accordion layoutX="62.0" layoutY="88.0"/>
+        <ListView fx:id="handkarten" layoutX="15.0" layoutY="352.0" onMouseClicked="#wahlHandkarte"
+                  orientation="HORIZONTAL" prefHeight="134.0" prefWidth="335.0"/>
+        <ListView fx:id="spielerKarten" layoutX="15.0" layoutY="44.0" onMouseClicked="#removeKarte" prefHeight="288.0"
+                  prefWidth="127.0"/>
+        <ListView fx:id="gegenspielerKarten" layoutX="406.0" layoutY="44.0" prefHeight="288.0" prefWidth="152.0"/>
+        <Button fx:id="handeln" layoutX="198.0" layoutY="239.0" mnemonicParsing="false" onAction="#handelBeschluss"
+                prefHeight="25.0" prefWidth="152.0" text="Handel bestätigen"/>
+        <ListView fx:id="stapel" layoutX="365.0" layoutY="352.0" onMouseClicked="#wahlStapelkarte"
+                  orientation="HORIZONTAL" pickOnBounds="false" prefHeight="134.0" prefWidth="193.00002207031503"/>
+        <Button fx:id="close" layoutX="489.0" layoutY="14.0" mnemonicParsing="false" onAction="#schließen"
+                prefHeight="25.0" prefWidth="69.0" text="Schließen"/>
+        <Button fx:id="min" layoutX="405.0" layoutY="14.0" mnemonicParsing="false" onAction="#minimize"
+                prefHeight="25.0" prefWidth="78.0" text="Minimieren"/>
+        <Separator layoutX="15.0" layoutY="342.0" prefHeight="3.0" prefWidth="538.0"/>
+    </children>
+</Pane>

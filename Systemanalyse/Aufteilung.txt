@@ -1,0 +1,7 @@
+Nils 1 bis 4
+Marco 5 bis 8
+Lukas B 9 bis 12
+Lukas T 13 bis 16
+Alex 17 bis 22
+
+ArgoUML

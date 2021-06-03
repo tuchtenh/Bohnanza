@@ -1,0 +1,290 @@
+\chapter{Systemtestfälle}
+
+Hier sollen verschiedene Szenarien beschrieben werden, mithilfe deren Sie später Systemtests ausführen, sowie die erwartete Ergebnisse.
+
+\newcounter{tf}\setcounter{tf}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+
+\begin{lhp}{tf}{TF}{tests:anmelden}
+	\item [Name:] Spieler anmelden.
+	\item [Motivation:] Testet, ob die Anmeldung in das System korrekt funktioniert.
+	\item [Sczenarien:] \hfill
+		\begin{enumerate}
+			\item \textit{Zugriffsdaten sind vorhanden und richtig} \\ $\implies$ Spieler wird in Lobby bewegt.
+			\item \textit{Benutzername ist registriert, Passwort ist falsch} \\ $\implies$ Fehlermeldung wird angezeigt.
+			\item \textit{Benutzername ist nicht registriert} \\ $\implies$ Fehlermeldung wird angezeigt.
+		\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:zugriff}
+	\item [Relevante Use Cases:] \ref{uc:anmeld}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:regist}
+	\item [Name:] Spieler registrieren
+	\item [Motivation:] Testet, ob die Registrierung in das System korrekt funktioniert.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Benutzername ist nicht vergeben und Passwort/Passwort-Wiederholung stimmen überein} \\ $\implies$ Spieler wird registriert und in Lobby bewegt.
+		\item \textit{Benutzername ist vergeben} \\ $\implies$ Fehlermeldung wird angezeigt.
+		\item \textit{Passwort und Passwort-Wiederholung stimmen nicht überein} \\ $\implies$ Fehlermeldung wird angezeigt.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:zugriff}
+	\item [Relevante Use Cases:] \ref{uc:regist}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:loeschen}
+	\item [Name:] Spieler löschen.
+	\item [Motivation:] Testet, ob sich der Spieler aus dem System löschen kann.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Passwort ist richtig} \\ $\implies$ Spieler wird gelöscht und zum Anmeldebildschirm geleitet.
+		\item \textit{Passwort ist falsch} \\ $\implies$ Fehlermeldung wird angezeigt.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:zugriff}
+	\item [Relevante Use Cases:] \ref{uc:loeschen}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:abmelden}
+	\item [Name:] Spieler abmelden.
+	\item [Motivation:] Testet, ob die Abmeldung vom System korrekt funktioniert.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Button erfolgreich betätigt} \\ $\implies$ Spieler wird aus der Lobby bewegt.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:zugriff}
+	\item [Relevante Use Cases:] \ref{uc:abmelden}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:spielraumerst}
+	\item [Name:] Spielraum erstellen.
+	\item [Motivation:] Testet, ob ein Spielraum erstellt werden kann.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Eingabeoptionen sind richtig} \\ $\implies$ Spieler wird in den Spielraum bewegt und Spielraum wird für andere Spieler sichtbar.
+		\item \textit{Eingabeoptionen sind ungültig} \\ $\implies$ Fehlermeldung wird angezeigt.
+		\item \textit{Spielraumname bereits vorhanden} \\ $\implies$ Fehlermeldung wird angezeigt.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielraum}
+	\item [Relevante Use Cases:] \ref{uc:spielraumerst}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:spielraumaend}
+	\item [Name:] Spielraum ändern.
+	\item [Motivation:] Testet, ob der Spielraum geändert werden kann.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Änderung liegen in den vorgegebenen Bedingungen} \\ $\implies$ Spielraum wird geändert.
+		\item \textit{Änderung liegen nicht in den vorgegebenen Bedingungen (Anzahl Spieler/Bots)} \\ $\implies$ Fehlermeldung wird angezeigt.
+		\item \textit{Spielraumname bereits vergeben} \\ $\implies$ Fehlermeldung wird angezeigt.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielraum}
+	\item [Relevante Use Cases:] \ref{uc:spielraumaend}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:spielraumloe}
+	\item [Name:] Spielraum löschen.
+	\item [Motivation:] Testet, ob ein Spielraum gelöscht werden kann.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Löschung wurde bestätigt} \\ $\implies$ Spieler werden in Lobby bewegt und Spielraum steht in der Lobby nicht mehr zur Verfügung.
+		\item \textit{Löschung wurde nicht bestätigt} \\ $\implies$ Spielraum bleibt bestehen.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielraum}
+	\item [Relevante Use Cases:] \ref{uc:spielraumloe}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:spielraumbeit}
+	\item [Name:] Spielraum beitreten.
+	\item [Motivation:] Testet, ob ein Spielraum betreten werden kann.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Button wurde betätigt} \\ $\implies$ Spieler wird in den Spielraum bewegt.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielraum}
+	\item [Relevante Use Cases:] \ref{uc:spielraumbeit}
+\end{lhp}
+
+
+\begin{lhp}{tf}{TF}{tests:spielraumverl}
+	\item [Name:] Spielraum verlassen.
+	\item [Motivation:] Testet, ob ein Spielraum verlassen werden kann.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Button wurde betätigt} \\ $\implies$ Spieler wird in die Lobby bewegt.
+		\item \textit{Spielraumersteller möchte Spielraum verlassen} \\ $\implies$ System meldet "{}Bitte Spielraum zuerst löschen"{}.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielraum}
+	\item [Relevante Use Cases:] \ref{uc:spielraumverl}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:spielstart}
+	\item [Name:] Spiel starten.
+	\item [Motivation:] Testet, ob ein Spiel gestartet werden kann.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Start wurde bestätigt und Vorbedingungen sind erfüllt} \\ $\implies$ Spiel wird gestartet, Spielraum wird aus der Lobby entfernt, Startspieler wird bestimmt, Handkarten werden ausgegeben.
+		\item \textit{Start wurde nicht bestätigt} \\ $\implies$ Spielraum bleibt bestehen.
+		\item \textit{Start wurde bestätigt und Vorbedingungen sind nicht erfüllt} \\ $\implies$ Fehlermeldung wird angezeigt.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:spielstart}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:spielverl}
+	\item [Name:] Spiel verlassen.
+	\item [Motivation:] Testet, ob ein Spiel verlassen werden kann.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Verlassen wurde bestätigt} \\ $\implies$ Spieler wird aus dem Spiel entfernt, Bots werden ggf. hinzugefügt, Startmarke wird ggf. neu zugewiesen.
+		\item \textit{Verlassen wurde nicht bestätigt} \\ $\implies$ Spieler bleibt im Spiel.
+		\item \textit{Spielersteller (Host) möchte Spiel verlassen} \\ $\implies$ System meldet "{}Spiel wird geschlossen, wenn Sie das Spiel verlassen - denken Sie über Ihre Entscheidung nach"{}
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:spielverl}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:bestenliste}
+	\item [Name:] Bestenliste anzeigen.
+	\item [Motivation:] Testet, ob die Bestenliste ordnungsgemäß angezeigt wird.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Einträge in der Datenbank vorhanden} \\ $\implies$ Bestenliste zeigt Spieler mit den meisten Wins in absteigender Reihenfolge.
+		\item \textit{Keine Einträge in der Datenbank vorhanden} \\ $\implies$ Bestenliste zeigt "{}Keine Einträge vorhanden"{}
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:bestenliste}
+	\item [Relevante Use Cases:] \ref{uc:bestenliste}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:chat}
+	\item [Name:] Chatten.
+	\item [Motivation:] Testet, ob Chatnachrichten ordnungsgemäß angezeigt werden.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Chat wird initialisiert} \\ $\implies$ Spieler sehen ein Chatfenster.
+		\item \textit{Chatnachricht wird abgeschickt} \\ $\implies$ Spieler sehen Chatnachricht des Verfassers.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:chat}
+	\item [Relevante Use Cases:] \ref{uc:chat}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:bot}
+	\item [Name:] Bot.
+	\item [Motivation:] Testet, ob Bot die einzelnen Spielphasen durchläuft.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Bot durchläuft Phasen des Spiels} \\ $\implies$ Einzelne Phasen werden erfolgreich abgeschlossen.
+		\item \textit{Bot durchläuft Phasen des Spiels nicht} \\ $\implies$ Fehlermeldung, wenn Phasen nicht abgeschlossen werden.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:bot}
+	\item [Relevante Use Cases:] \ref{uc:bot}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:spielverwaltung}
+	\item [Name:] Spielrunden durchlaufen.
+	\item [Motivation:] Testet, ob leer ist und Nachziehstapel dreimal geleert wurde.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Nachziehstapel nicht leer} \\ $\implies$ Keine Aktion des Systems.
+		\item \textit{Nachziehstapel ist leer, jedoch nicht dreimal geleert} \\ $\implies$ Ablegestapel wird gemischt und als Nachziehstapel deklariert.
+		\item \textit{Nachziehstapel ist leer und dreimal geleert} \\ $\implies$ System leitet letzte Spielphasen ein und meldet dies den Spielern. Verweis auf \ref{uc:spielbeenden} wird angezeigt.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:spielverwaltung}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:spielbeenden}
+	\item [Name:] Spiel beenden.
+	\item [Motivation:] Testet, ob ein Spiel ordnungsgemäß beendet wird.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{System hat Funktion "{}Spielbeenden"{} aufgerufen} \\ $\implies$ Gewinner wird bekanntgegeben, Spieler werden in Lobby geleitet, Datenbankeintrag des Gewinners wird aktualisiert.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:spielbeenden}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:phase1}
+	\item [Name:] Phase 1.
+	\item [Motivation:] Testet, ob Phase 1 korrekt durchlaufen wird.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Spieler baut Handkarten ab} \\ $\implies$ Handkarten erscheinen auf auf dem Bohnenfeld.
+		\item \textit{Kein freies Bohnenfeld vorhanden} \\ $\implies$ Spieler erhält Meldung des Systems.
+		\item \textit{Spieler beendet Phase 1.} \\ $\implies$ System leitet Phase 2 ein.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:phase1}
+\end{lhp}
+
+
+\begin{lhp}{tf}{TF}{tests:abernten}
+	\item [Name:] Bohnenkarte abernten.
+	\item [Motivation:] Testet, ob Bohnenkarten erfolgreich abgeerntet werden.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Spieler baut Bohnenkarten ab} \\ $\implies$ Spieler erhält Taler im Wert der abgeernteten Bohnenkarten, System legt übrige Karten auf den Ablagestapel.
+		\item \textit{Bohnenschutzregel verletzt} \\ $\implies$ Spieler erhält Meldung des Systems.
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:abernten}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:phase2}
+	\item [Name:] Phase 2.
+	\item [Motivation:] Testet, ob Phase 2 korrekt durchlaufen wird.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{System hat Prüfung von \ref{uc:spielverwaltung} erfolgreich abgeschlossen} \\ $\implies$ System legt zwei Karten vom Nachziehstapel daneben.
+		\item \textit{System hat Prüfung von \ref{uc:spielverwaltung} nicht erfolgreich abgeschlossen} \\ $\implies$ Verweis auf \ref{tests:spielverw}.
+		\item \textit{Spieler betätigt Handel} \\ $\implies$ System leitet Handelphase ein \ref{tests:handeln}.
+		\item \textit{Spieler handelt nicht oder handel beendet} \\ $\implies$ System legt ürbige Karten neben Anbaufeld.
+		\item \textit{Spieler beendet Phase 2} \\ $\implies$ System leitet Phase 3 ein.		
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:phase2}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:handeln}
+	\item [Name:] Handel.
+	\item [Motivation:] Testet, ob Handel erfolgreich durchlaufen wird.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Spieler wählt anderen Spieler zum Handeln aus} \\ $\implies$ Das System zeigt beiden Spieler ein Handelfenster.
+		\item \textit{Spieler schließt Handelfenster} \\ $\implies$ Das System meldet "{}Handel abgebrochen"{}.
+		\item \textit{Spieler beenden Handel} \\ $\implies$ Das System legt die neu erworbenen Bohnenkarten neben das Anbaufeld.
+	
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:phase2}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:phase3}
+	\item [Name:] Phase 3.
+	\item [Motivation:] Testet, ob Phase 3 erfolgreich durchlaufen wird.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{Spieler wählen die Karten des Anbaustapels und bauen diese an.} \\ $\implies$ Das System verschiebt die Karten auf die entsprechenden Anbaufelder.
+		\item \textit{Spieler besitzen keine freien Felder} \\ $\implies$ Das System meldet "{}Kein freies Anbaufeld vorhanden."{}
+		\item \textit{Alle Spieler haben die Bohnenkarten aus Phase 2 angebaut} \\ $\implies$ Das System leitet Phase 4 ein.
+		
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:phase3}
+\end{lhp}
+
+\begin{lhp}{tf}{TF}{tests:phase4}
+	\item [Name:] Phase 4.
+	\item [Motivation:] Testet, ob Phase 4 erfolgreich durchlaufen wird.
+	\item [Sczenarien:] \hfill
+	\begin{enumerate}
+		\item \textit{System hat Prüfung von \ref{uc:spielverwaltung} erfolgreich abgeschlossen} \\ $\implies$ System weist dem Spieler drei neue Handkarten in entsprechender Reihenfolge zu.
+		\item \textit{System hat Prüfung von \ref{uc:spielverwaltung} nicht erfolgreich abgeschlossen} \\ $\implies$ Verweis auf \ref{tests:spielverw}.
+		\item \textit{System hat drei Handkarten zugewiesen} \\ $\implies$ Das System übergibt die Rolle des aktiven Spielers dem nächsten Spieler und beginnt bei Phase 1.	
+	\end{enumerate}
+	\item [Relevante Systemfunktionen:] \ref{funk:spielverw}
+	\item [Relevante Use Cases:] \ref{uc:phase4}
+\end{lhp}
+
+
+
+\end{description}

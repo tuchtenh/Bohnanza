@@ -1,0 +1,28 @@
+\input{preamble}
+\input{custom_commands}
+
+\makeatletter
+	\newcommand{\mysubject}{Lastenheft}
+	\newcommand{\mygroup}{}
+	\newcommand{\myauthor}{%
+			Lukas Bayer \\
+			Nils Fitting \\
+ 			Marco Tücks \\
+ 			Alexander Wilhelm \\
+ 			Lukas Tuchtenhagen %
+ 			}
+\makeatother
+
+\begin{document}
+
+	\include{titlepage}
+
+	\tableofcontents
+
+	\include{las_tex/treiber}
+	\include{las_tex/beschraenkungen}
+	\include{las_tex/funktional}
+	%gehört eher in das Pflichtenheft \include{las_tex/daten}
+	\include{las_tex/nichtfunktional}
+	\include{las_tex/warteraum}
+\end{document}

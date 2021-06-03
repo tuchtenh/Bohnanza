@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns:fx="http://javafx.com/fxml" prefHeight="315.0" prefWidth="207.0" style="-fx-border-color: black;"
+          xmlns="http://javafx.com/javafx" fx:controller="GUI.RegController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="72.0" minWidth="10.0" prefWidth="18.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="257.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="13.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="176.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="176.0" minHeight="0.0" prefHeight="23.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="176.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="280.0" minHeight="4.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="280.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="280.0" minHeight="9.0" prefHeight="33.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="131.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+
+        <Label text="Benutzername:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="Passwort:" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <TextField id="benutzer" fx:id="benutzer" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <PasswordField id="passwort" fx:id="passwort" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <PasswordField id="passwortWdh" fx:id="passwortWdh" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Passwort wiederholen:" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <children>
+                <Button mnemonicParsing="false" onAction="#register" prefHeight="0.0" prefWidth="254.0"
+                        text="Registrieren"/>
+                <Separator prefWidth="200.0">
+                    <VBox.margin>
+                        <Insets top="25.0"/>
+                    </VBox.margin>
+                </Separator>
+                <Button mnemonicParsing="false" onAction="#zurueck" prefHeight="25.0" prefWidth="271.0" text="Zurück">
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </Button>
+            </children>
+            <GridPane.margin>
+                <Insets top="30.0"/>
+            </GridPane.margin>
+        </VBox>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRIERUNG" GridPane.columnIndex="1"
+              GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <font>
+                <Font name="System Bold" size="23.0"/>
+            </font>
+        </Text>
+    </children>
+</GridPane>

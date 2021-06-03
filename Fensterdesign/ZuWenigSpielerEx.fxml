@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="343.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Polygon fill="#ecff1f" layoutX="172.0" layoutY="56.0" points="-30.0, 11.0, 29.0, 11.0, 0.0, -42.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="166.0" layoutY="20.0" text="!">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <Button layoutX="148.0" layoutY="198.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="OK" />
+      <Label layoutX="71.0" layoutY="102.0" text="Das Spiel konnte nicht gestartet werden." />
+      <Label layoutX="56.0" layoutY="139.0" text="Es befinden sich zu wenig Spieler im Vorraum." />
+   </children>
+</Pane>

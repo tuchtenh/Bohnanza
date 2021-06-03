@@ -1,0 +1,52 @@
+
+\section{Produktdaten}
+
+Hier sollen die Daten genannt werden, die im System verwendet werden.
+
+\newcounter{ld}\setcounter{ld}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{ld}{LD}{daten:benutzername}
+		\item [Name:] Benutzername*\footnote{``*'' bedeutet hier, dass die Daten in der Datenbank zu speichern sind}
+		\item [Fachliche Beschreibung:] Benutzername des Spielers
+		\item [Relevante Systemfunktionen:] \ref{funk:spielverw}, \ref{funk:zugriff}
+	\end{lhp}
+	
+	\begin{lhp}{ld}{LD}{daten:passwort}
+		\item [Name:] Passwort*
+		\item [Fachliche Beschreibung:] Passwort des Spielers
+		\item [Relevante Systemfunktionen:] \ref{funk:zugriff}
+	\end{lhp}
+
+	\begin{lhp}{ld}{LD}{daten:gewonneneSp}
+		\item [Name:] Gewonnene Spiele*
+		\item [Fachliche Beschreibung:] Anzahl der gewonnenen Spiele eines Spielers
+		\item [Relevante Systemfunktionen:] \ref{funk:bestenliste}
+	\end{lhp}
+
+	\begin{lhp}{ld}{LD}{daten:spielzeit}
+		\item [Name:] Spielzeit*
+		\item [Fachliche Beschreibung:] Spielzeit eines Spielers, damit Eltern die Spielzeit ihrer Kinder einschränken können.
+		\item [Relevante Systemfunktionen:] \ref{funk:zugriff}
+	\end{lhp}
+
+	\begin{lhp}{ld}{LD}{daten:taler}
+		\item [Name:] Taler
+		\item [Fachliche Beschreibung:] Taler eines Spielers
+		\item [Relevante Systemfunktionen:] \ref{spielverw}
+	\end{lhp}
+
+	\begin{lhp}{ld}{LD}{daten:chat}
+	\item [Name:] Chat
+	\item [Fachliche Beschreibung:] Chatnachrichten innerhalb eines Chats.
+	\item [Relevante Systemfunktionen:] \ref{chat}
+	\end{lhp}
+
+	\begin{lhp}{ld}{LD}{daten:bot}
+	\item [Name:] Spielkarten
+	\item [Fachliche Beschreibung:] Anzahl der ausgegebenen Spielkarten. Relevant für intelligente Bots.
+	\item [Relevante Systemfunktionen:] \ref{bots}
+	\end{lhp}
+
+\end{description}

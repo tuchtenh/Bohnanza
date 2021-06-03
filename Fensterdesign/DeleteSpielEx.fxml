@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="219.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Polygon fill="#ecff1f" layoutX="180.0" layoutY="63.0" points="-30.0, 11.0, 29.0, 11.0, 0.0, -42.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="174.0" layoutY="27.0" text="!">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <Label layoutX="118.0" layoutY="120.0" text="Das Spiel wurde beendet." />
+      <Label layoutX="68.0" layoutY="155.0" text="Alle Spieler werden in die Lobby geschickt" />
+   </children>
+</Pane>

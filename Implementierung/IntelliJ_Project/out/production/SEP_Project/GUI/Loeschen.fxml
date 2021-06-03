@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+<Pane xmlns:fx="http://javafx.com/fxml" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="251.0" prefWidth="315.0" style="-fx-border-color: black; -fx-border-width: 2;"
+      xmlns="http://javafx.com/javafx" fx:controller="GUI.LoeschenController">
+    <children>
+        <PasswordField fx:id="pw" layoutX="26.0" layoutY="181.0" prefHeight="25.0" prefWidth="271.0"/>
+        <Text layoutX="26.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bitte Passwort eingeben:"
+              wrappingWidth="148.5078125"/>
+        <Button fx:id="confirm" defaultButton="true" focusTraversable="false" layoutX="26.0" layoutY="212.0"
+                mnemonicParsing="false" onAction="#loeschen" prefHeight="25.0" prefWidth="135.0" text="Bestätigen"/>
+        <Button fx:id="cancel" cancelButton="true" focusTraversable="false" layoutX="176.0" layoutY="212.0"
+                mnemonicParsing="false" onAction="#schließen" prefHeight="25.0" prefWidth="121.0" text="Abbrechen"/>
+        <Text layoutX="26.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Achtung:                                                                    Nachdem Sie Ihr Passwort erfolgreich eingegeben haben, wird Ihr Account unwiederruflich gelöscht. Das Spiel wird anschließend geschlossen."
+              wrappingWidth="271.0"/>
+    </children>
+</Pane>

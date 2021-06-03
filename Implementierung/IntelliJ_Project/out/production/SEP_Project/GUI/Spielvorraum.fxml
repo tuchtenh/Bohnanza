@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml" prefHeight="390.0" prefWidth="753.0"
+          style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx"
+          fx:controller="GUI.SpielvorraumController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="20.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="592.0" minWidth="10.0" prefWidth="588.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="647.0" minWidth="10.0" prefWidth="129.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="647.0" minWidth="0.0" prefWidth="17.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="38.0" minHeight="0.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="184.0" minHeight="10.0" prefHeight="162.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="106.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <TextArea fx:id="chatAusgabe" editable="false" prefHeight="100.0" prefWidth="563.0"
+                  text="---------Chat-----------&#10;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets top="5.0"/>
+            </GridPane.margin>
+        </TextArea>
+        <Button mnemonicParsing="false" onAction="#leave" prefHeight="25.0" prefWidth="115.0" text="Verlassen"
+                GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1"/>
+        <Button mnemonicParsing="false" onAction="#senden" prefHeight="25.0" prefWidth="130.0" text="Senden"
+                GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets left="5.0"/>
+            </GridPane.margin>
+        </Button>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Spieler:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+                <Font size="17.0"/>
+            </font>
+        </Text>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bots:" wrappingWidth="45.92547607421875"
+              GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+                <Font size="17.0"/>
+            </font>
+            <GridPane.margin>
+                <Insets left="290.0"/>
+            </GridPane.margin>
+        </Text>
+        <TextField fx:id="chatEingabe" prefWidth="562.0" promptText="Schreib etwas..." GridPane.columnIndex="1"
+                   GridPane.rowIndex="5"/>
+        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Spielvorraum:">
+                    <font>
+                        <Font name="System Bold" size="26.0"/>
+                    </font>
+                </Text>
+                <Text id="nameSpielraum" fx:id="nameRaum" strokeType="OUTSIDE" strokeWidth="0.0" text="Name"
+                      wrappingWidth="84.99395751953125">
+                    <font>
+                        <Font size="26.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="5.0"/>
+                    </HBox.margin>
+                </Text>
+            </children>
+        </HBox>
+        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <children>
+                <ListView id="spielerListe" fx:id="listeSpieler" prefHeight="152.0" prefWidth="287.0"/>
+                <ListView id="botListe" fx:id="listeBots" prefHeight="152.0" prefWidth="166.0">
+                    <HBox.margin>
+                        <Insets left="5.0"/>
+                    </HBox.margin>
+                </ListView>
+                <VBox prefHeight="150.0" prefWidth="126.0">
+                    <children>
+                        <ChoiceBox fx:id="blist" prefWidth="150.0"/>
+                        <Button mnemonicParsing="false" onAction="#addBot" prefHeight="25.0" prefWidth="138.0"
+                                text="Bot hinzufügen">
+                            <VBox.margin>
+                                <Insets top="5.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#removeBot" prefHeight="25.0" prefWidth="129.0"
+                                text="Bot entfernen">
+                            <VBox.margin>
+                                <Insets top="5.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#starteSpiel" prefHeight="25.0" prefWidth="247.0"
+                                text="Spiel starten">
+                            <VBox.margin>
+                                <Insets top="55.0"/>
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="5.0"/>
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+        <Button alignment="CENTER" mnemonicParsing="false" onAction="#minimize" prefHeight="25.0" prefWidth="114.0"
+                text="Minimieren" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2"/>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Botverwaltung:" GridPane.columnIndex="1"
+              GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <GridPane.margin>
+                <Insets right="5.0"/>
+            </GridPane.margin>
+        </Text>
+    </children>
+</GridPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" depthTest="DISABLE" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity"
+      minWidth="-Infinity" mouseTransparent="false" prefHeight="553.0" prefWidth="603.0"
+      xmlns="http://javafx.com/javafx/2.2" fx:controller="GUI.HandelController">
+    <children>
+        <Accordion layoutX="62.0" layoutY="88.0"/>
+        <ListView fx:id="handkarten" layoutX="15.0" layoutY="401.0" onMouseClicked="#setKarte" orientation="HORIZONTAL"
+                  prefHeight="134.0" prefWidth="335.0"/>
+        <Button fx:id="add" layoutX="225.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0"
+                text="Zum Handel hinzufügen"/>
+        <ListView fx:id="spielerKarten" layoutX="15.0" layoutY="13.0" onMouseClicked="#removeKarte" prefHeight="288.0"
+                  prefWidth="152.0"/>
+        <ListView fx:id="gegenspielerKarten" layoutX="430.0" layoutY="14.0" prefHeight="288.0" prefWidth="159.0"/>
+        <Text layoutX="252.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;- tauschen für -&gt;"/>
+        <Button fx:id="handeln" layoutX="226.0" layoutY="252.0" mnemonicParsing="false" onAction="#akzeptiereHandel"
+                prefHeight="25.0" prefWidth="152.0" text="Angebot unterbreiten"/>
+        <ImageView fx:id="feld1" fitHeight="149.0" fitWidth="98.0" layoutX="369.0" layoutY="386.0"
+                   onMouseClicked="#setFeldkarte1" pickOnBounds="true" preserveRatio="true"/>
+        <ImageView fx:id="feld2" fitHeight="149.0" fitWidth="98.0" layoutX="485.0" layoutY="386.0"
+                   onMouseClicked="#setFeldkarte2" pickOnBounds="true" preserveRatio="true"/>
+    </children>
+</Pane>

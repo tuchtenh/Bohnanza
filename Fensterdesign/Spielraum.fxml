@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="//Name des Spielraums" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="60.0" layoutY="82.0" text="Spieler 1" />
+            <Label layoutX="148.0" layoutY="82.0" text="//Spielername" />
+            <Label layoutX="60.0" layoutY="122.0" text="Spieler 2" />
+            <Label layoutX="148.0" layoutY="122.0" text="//Spielername" />
+            <Label layoutX="60.0" layoutY="164.0" prefHeight="17.0" prefWidth="167.0" text="                       ..." />
+            <Label layoutX="390.0" layoutY="82.0" text="Bot 1" />
+            <TextArea layoutX="-1.0" layoutY="314.0" prefHeight="60.0" prefWidth="600.0" text="//Chatfenster&#10;" />
+            <Label layoutX="389.0" layoutY="122.0" prefHeight="17.0" prefWidth="31.0" text="Bot 2" />
+            <Label layoutX="480.0" layoutY="82.0" text="Botname" />
+            <Label layoutX="480.0" layoutY="122.0" text="Botname" />
+            <Label layoutX="374.0" layoutY="164.0" prefHeight="17.0" prefWidth="167.0" text="                       ..." />
+            <Button layoutX="14.0" layoutY="277.0" mnemonicParsing="false" text="Spielraum verlassen" />
+            <Button layoutX="182.0" layoutY="277.0" mnemonicParsing="false" text="Spiel starten" />
+            <Button layoutX="353.0" layoutY="277.0" mnemonicParsing="false" text="Bot hinzufügen" />
+            <Button layoutX="478.0" layoutY="277.0" mnemonicParsing="false" text="Bot entfernen" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>

@@ -1,0 +1,471 @@
+\section{Beschreibungen der Anwendungsfälle}
+
+
+
+\newcounter{uc}\setcounter{uc}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+
+	\begin{lhp}{uc}{UC}{uc:regist}
+		\item [Name:] Spieler registrieren.
+		\item [Ziel:] Spieler kann Bohnanza spielen. 
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen:] Bohnanza wurde erfolgreich installiert und gestartet.
+		\item [Eingabedaten:] Zugriffsdaten bestehend aus Benutzername, Passwort und Passwort-Wiederholung
+		\item [Beschreibung:] \hfill\\ \hfill\\
+				1. Der Spieler installiert und öffnet Bohnanza.\\
+				2. Der Spieler öffnet den Registrieren-Dialog. \\
+				3. Der Spieler gibt seine Daten ein und sendet das Formular ab.\\
+				4. Das System prüft die Gleichheit von Passwort und Passwort-Wiederholung.\\
+				5. Das System prüft auf bereits vorhandene Spieler des gleichen Namens.\\
+				6. Das System legt einen neuen Eintrag in der Datenbank an. \\
+				7. Der System bestätigt die erfolgreiche Registrierung und leitet den Spieler in die Lobby weiter.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Passwort und Passwort-Wiederholung stimmen nicht überein:} Das System zeigt eine Fehlermeldung an und fordert den Benutzer auf, das Passwort erneut einzugeben.
+				\item[] \textit{Benutzername bereits vorhanden:} Das System zeigt eine Fehlermeldung an und fordert den Benutzer auf, einen anderen Benutzernamen zu wählen.
+			
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Neuer Eintrag (Spieler) in der Datenbank. Spieler befindet sich in der Lobby.
+		\item [Systemfunktionen] \ref{funk:zugriff}.
+	\end{lhp}
+	
+	\begin{lhp}{uc}{UC}{uc:anmeld}
+		\item [Name:] Spieler anmelden.
+		\item [Ziel:] Spieler meldet sich im System an.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Spieler ist im Vorraum.
+		\item [Eingabedaten:] Zugriffsdaten.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Spieler sendet das Formular ab.\\
+			2. Das System prüft die Gültigkeit von Zugangsdaten und bewegt den Spieler in Lobby.\\				
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Passwort oder Benutzername ist falsch:} Das System zeigt eine Fehlermeldung an, anstatt des Schrittes 2.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spieler ist im Lobby und sieht die Bestenliste.	
+		\item [Systemfunktionen:] \ref{funk:zugriff}.
+	\end{lhp}
+	
+	\begin{lhp}{uc}{UC}{uc:loeschen}
+		\item [Name:] Spieler löschen.
+		\item [Ziel:] Spieler entfernt seine Daten aus dem System.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Spieler ist im Vorraum.
+		\item [Eingabedaten:] Passwort.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+				1. Spieler sendet das Formular ab.\\
+				2. Das System prüft die Richtigkeit vom Passwort und fragt Spieler noch ein mal, ob er sich wirklich aus dem System entfernen möchte.\\
+				3. Spieler bestätigt seine Intention.\\
+				4. Das System entfern alle Daten des Spielers aus der Datenbank und bewegt Spieler in den Vorraum.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Passwort ist falsch:} Das System zeigt eine Fehlermeldung an, anstatt des Schrittes 2.
+				\item[] \textit{Keine Löschung erwünscht:} Anstatt des Schrittes 4, schließt das System das Dialog.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spieler ist im Vorraum, Spielerkonto wurde gelöscht.	
+		\item [Systemfunktionen:] \ref{funk:zugriff}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:abmelden}
+		\item [Name:] Spieler abmelden
+		\item [Ziel:] Spieler meldet sich vom System ab.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Spieler ist im Vorraum.
+		\item [Eingabedaten:] Betätigung des Buttons. 
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Spieler betätigt den Abmeldebutton.\\
+			2. Das System fragt, ob die Abmeldung wirklich erfolgen soll.\\
+			3. Spieler bestätigt seine Intention.\\
+			4. Das System meldet den Spieler vom Spiel ab.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Keine} 
+		
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spieler ist vom System abgemeldet und Programm wird geschlossen. 	
+		\item [Systemfunktionen:] \ref{funk:zugriff}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:spielraumerst}
+		\item [Name:] Neuen Spielraum erstellen.
+		\item [Ziel:] Der Spieler erstellt ein neuen Spielraum in der Lobby
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Spieler ist in der Lobby.
+		\item [Eingabedaten:] Name des Spielraumes, Anzahl der maximalen Spieler (3-5).
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Spieler betätigt "{}Spiel erstellen{}"{}-Button.\\
+			2. Das System fordert den Benutzer auf einen Spielnamen und die Anzahl der maximalen Spieler einzugeben.\\
+			3. Spieler bestätigt seine Intention.\\
+			4. Das System prüft, ob dieser Spielname bereits vorhanden ist.	\\		
+			5. Das System erstellt einen neuen Spielraum in der Lobby. \\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Spielname bereits vorhanden:} Das System zeigt eine Fehlermeldung an und fordert den Spieler auf, einen neuen Spielnamen einzugeben.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Neues Spiel in der Lobby ersichtlich. Spieler ist dem Spiel als "{}Spielersteller{}"{} zugeordnet.  	
+		\item [Systemfunktionen:] \ref{funk:spielraum}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:spielraumaend}
+		\item [Name:] Vorhandenen Spielraum ändern.
+		\item [Ziel:] Der Spielraumersteller ändert die Einstellungen des Spielraumes.
+		\item [Akteure:] Spieler (Spielersteller).
+		\item [Vorbedingungen] Spieler ist im Spielraum.
+		\item [Eingabedaten:] Name des Spielraumes, Anzahl der maximalen Spieler (3-5), Anzahl der Bots (1-4).
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Spieler betätigt "{}Ändern{}"{}-Button.\\
+			2. Das System fordert den Benutzer auf den Spielnamen, die Anzahl der maximalen Spieler und die Anzahl der Bots zu ändern. \\
+			3. Spieler bestätigt seine Intention.\\
+			4. Das System prüft, ob dieser Spielname bereits vorhanden ist.\\	
+			5. Das System prüft, ob die Anzahl der zulässigen maximalen Spieler durch die Änderungen und durch das Hinzufügen der Bots überschritten wurde.\\	
+			5. Das System ändert die Daten des Spielraumes.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Spielname bereits vorhanden:} Das System zeigt eine Fehlermeldung an und fordert den Spieler auf, einen anderen Spielnamen einzugeben.
+				\item[] \textit{Anzahl der maximalen Spieler überschritten:} Das System zeigt eine Fehlermeldung an und fordert den Spieler auf, Bots zu entfernen oder die Anzahl der maximalen Spieler zu erhöhen.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Daten des Spielraumes aktualisiert.   	
+		\item [Systemfunktionen:] \ref{funk:spielraum}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:spielraumloe}
+		\item [Name:] Spielraum löschen.
+		\item [Ziel:] Der Spielraumersteller löscht den Spielraum.
+		\item [Akteure:] Spieler (Spielersteller).
+		\item [Vorbedingungen] Spieler ist im Spielraum.
+		\item [Eingabedaten:] Bestätigungs-Button.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Spieler betätigt "{}Löschen{}"{}-Button.\\
+			2. Das System fragt nach, ob der Spielraum wirklich gelöscht werden soll.\\
+			3. Spieler bestätigt seine Intention.\\
+			4. Das System löscht den Spielraum.	\\	
+			5. Das System leitet den Spielersteller und weitere Spieler in die Lobby zurück.\\	
+			5. Das System meldet "{}Spielraum gelöscht{}"{}.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{keine} 
+			
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spielraum gelöscht. 	
+		\item [Systemfunktionen:] \ref{funk:spielraum}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:spielraumbeit}
+		\item [Name:] Spielraum beitreten.
+		\item [Ziel:] Der Spieler tritt einem Spielraum bei.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Spieler ist in der Lobby.
+		\item [Eingabedaten:] Bestätigungs-Button.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Spieler betätigt "{}Beitreten{}"{}-Button.\\
+			2. Das System prüft, ob die maximale Anzahl der Spieler überschritten wird.\\
+			3. Das System fügt den Spieler dem Spielraum hinzu.\\	
+			4. Das System meldet den anderen Teilnehmern "{}Neuer Spieler beigetreten{}"{}.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Spielraum voll:} Das System meldet dem Spieler:{} {}Spielraum bereits voll, bitte ein anderes Spiel auswählen{}"{}.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spielraum gelöscht. 	
+		\item [Systemfunktionen:] \ref{funk:spielraum}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:spielraumverl}
+		\item [Name:] Spielraum verlassen.
+		\item [Ziel:] Der Spieler verlässt den Spielraum
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Spieler ist im Spielraum.
+		\item [Eingabedaten:] Bestätigungs-Button.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Der Spieler betätigt "{}Verlassen{}"{}-Button.\\
+			2. Das System fordert Bestätigung.\\
+			3. Der Spieler bestätigt seine Intention.\\
+			4. Das System entfernt den Spieler aus dem Spielraum und leitet ihn in die Lobby zurück.\\	
+			4. Das System meldet den anderen Teilnehmern "{}Spieler hat Spielraum verlassen{}"{}.	
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Spielerersteller verlässt den Spielraum:} Das System meldet dem Spieler: "{}Bitte Spielraum zuerst löschen{}"{}.
+					
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spielraum verlassen. Spieler in Lobby.	
+		\item [Systemfunktionen:] \ref{funk:spielraum}.
+	\end{lhp}	
+	
+
+	\begin{lhp}{uc}{UC}{uc:spielstart}
+		\item [Name:] Spiel starten.
+		\item [Ziel:] Der Spielraumersteller startet das Spiel.
+		\item [Akteure:] Spieler (Spielersteller).
+		\item [Vorbedingungen] Spieler ist im Spielraum. Die Anzahl der Spieler inklusive Bots im Spielraum beträgt mindestens 3.
+		\item [Eingabedaten:] Bestätigungs-Button.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Spieler betätigt "{}Starten{}"{}-Button.\\
+			2. Das System fragt nach, ob das Spiel gestartet werden soll.\\
+			3. Spieler bestätigt seine Intention.\\
+			4. Das System entfernt das Spiel aus dem Spielraum.\\
+			5. Das System startet ein Spiel.\\	
+			6. Das System bestimmt zufällig einen Startspieler.\\	
+			7. Das System vergibt jedem Spieler fünf Handkarten.\\
+			8. Das System zeigt eine Meldung {}"Spiel beginnt{}"{}.\\
+			9. Das System fordert den Startspieler dazu auf, den Zug zu beginnen.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+					\item[] \textit{Nicht genügend Spieler vorhanden:} Das System zeigt eine Meldung: "{}Nicht genügend Spieler zum Starten des Spiels vorhanden{}"{}.
+					
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spiel gestartet. Die Spieler befinden sich in der Spieloberfläche.	
+		\item [Systemfunktionen:] \ref{funk:spielraum}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:spielverl}
+		\item [Name:] Spiel verlassen.
+		\item [Ziel:] Der Spieler verlässt das Spiel.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Spieler ist im Spiel.
+		\item [Eingabedaten:] Bestätigungs-Button.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Der Spieler betätigt "{}Verlassen{}"{}-Button.\\
+			2. Das System fordert Bestätigung.\\
+			3. Der Spieler bestätigt seine Intention.\\
+			4. Das System entfernt den Spieler aus dem Spiel und leitet ihn in die Lobby zurück.\\	
+			5. Das System meldet den anderen Teilnehmern "Spieler hat das Spiel verlassen".\\
+			6. Das System prüft, ob sich weniger als drei Spieler im Spielraum befinden und fügt ggf. einen Bot hinzu.\\
+			7. Das System prüft, ob der Startspieler das Spiel verlassen hat und bestimmt einen Startspieler links vom ehemaligen Startspieler.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Spielerersteller verlässt den Spielraum:} Das System meldet dem Spieler: "{}Spiel wird geschlossen, wenn Sie das Spiel verlassen - denken Sie über Ihre Entscheidung nach{}"{}.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spiel verlassen. Spieler befindet sich in Lobby.	
+		\item [Systemfunktionen:] \ref{funk:spielverw}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:phase1}
+		\item [Name:] Phase 1.
+		\item [Ziel:] Phase 1 durchlaufen.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Spiel frisch gestartet oder Phase 4 beendet, Handkarten vorhanden.
+		\item [Eingabedaten:] Bestätigungs-Button, Handkarten in richtiger Reihenfolge.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. System prüft, ob menschlicher Spieler oder Bot an der Reihe ist und ruft ggf. \ref{uc:bot} auf.\\
+			2. Spieler baut Handkarten an.\\
+			3. Der Spieler beendet die Phase.\\
+			4. Das System leitet Phase 2 ein.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Kein freies Anbaufeld vorhanden:} Das System zeigt eine Meldung: {}"{}Kein freies Anbaufeld vorhanden, Felder abernten (\ref{uc:abernten}){}"
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Handkarten angebaut. Phase 1 beendet.	
+		\item [Systemfunktionen:] \ref{funk:spielverw}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:abernten}
+		\item [Name:] Bohnenkarten abernten.
+		\item [Ziel:] Der Spieler baut Bohnenkarten ab.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] keine
+		\item [Eingabedaten:] Bestätigungs-Button.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Spieler betätigt "{}Ernten{}"{}-Button.\\
+			2. Das System fragt nach, ob die Bohnen geerntet werden sollen.\\
+			3. Spieler bestätigt seine Intention.\\
+			4. Das System prüft "{}Bohnenschutzregel{}"{}.\\
+			4. Das System entfernt die Karten vom Ablagefeld\\
+			5. Das System legt Karten in der Anzahl der erhaltenen Taler auf das Talerfeld.\\	
+			6. Das System legt die restlichen Karten auf den Ablagestapel.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Bohnenschutzregel verletzt:} Das System meldet {}"Bohnenschutzregel verletzt, Aktion nicht möglich{}"{}.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Bohnenfeld leer, Taler des Spielers ggf. erhöht.	
+		\item [Systemfunktionen:] \ref{funk:spielraum}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:phase2}
+		\item [Name:] Phase 2.
+		\item [Ziel:] Phase 2 durchlaufen.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Phase 1 beendet.
+		\item [Eingabedaten:] Bestätigungs-Button
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Das System legt zwei Karten vom Nachziehstapel daneben und prüft \ref{uc:spielverwaltung}.\\
+			2. Das System fordert den Spieler auf die Karten zu nehmen oder zu handeln (\ref{uc:handeln})\\
+			3. Das System wartet ggf. \ref{uc:handeln} ab.\\
+			4. Das System legt die übrigen Karten neben dem Nachziehstapel quer neben das Anbaufeld.\\
+			5. Der aktive Spieler beendet die Phase.\\
+			6. Das System leitet Phase 3 ein.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{keine} 
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Neue Karten liegen neben dem Bohnenfeld. Phase 2 beendet.
+		\item [Systemfunktionen:] \ref{funk:spielverw}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:handeln}
+		\item [Name:] Handel.
+		\item [Ziel:] Handel abschließen.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Phase 2 läuft.
+		\item [Eingabedaten:] Bestätigungs-Button, Bohnenkarten
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Der aktive Spieler wählt einen anderen Spieler zum Handeln aus.\\
+			2. Die Spieler bestätigen den Handel.\\
+			3. Das System tauschen die Karten aus.\\
+			4. Der aktive Spieler beendet den Handel.\\
+			5. Das System legt die neu erworbenen Karten neben das Bohnenfeld.\\
+			6. Der aktive Spieler wiederholt ggf. Schritt 1-4.\\
+		7. Der Spieler beendet seine Handelsphase.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Handel abgebrochen:} Das System "{}Handel abgebrochen{}"{}, wenn einer der Spieler den Handel nicht bestätigt oder das Handelfenster schließt.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Handelkarten neben dem Bohnenfeld. Handelphase abgeschlossen. 
+		\item [Systemfunktionen:] \ref{funk:spielverw}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:phase3}
+		\item [Name:] Phase 3.
+		\item [Ziel:] Phase 3 durchlaufen.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Phase 2 ist abgeschlossen.
+		\item [Eingabedaten:] Bestätigungs-Button
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Das System prüft, ob freie Felder zum Anbauen der Bohnenkarten vorhanden sind.\\
+			2. Alle Spieler bauen die Bohnenkarten, erworben durch den Handel (\ref{uc:handeln}) oder vom Nachziehstapel (aktiver Spieler, \ref{uc:phase2}) an.\\
+			3. Das System beendet die Phase, sobald alle Spieler ihre Karten angebaut haben.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{Kein freies Anbaufeld:} Das System meldet "{}kein freies Anbaufeld vorhanden{}"{}.
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Erworbene Bohnenkarten aus Phase 2 wurden angebaut.  
+		\item [Systemfunktionen:] \ref{funk:spielverw}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:phase4}
+		\item [Name:] Phase 4.
+		\item [Ziel:] Phase 4 durchlaufen.
+		\item [Akteure:] Spieler.
+		\item [Vorbedingungen] Phase 3 ist abgeschlossen.
+		\item [Eingabedaten:] Bestätigungs-Button
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Das System prüft \ref{uc:spielverwaltung} und gibt dem aktiven Spieler drei neue Handkarten in entsprechender Reihenfolge.\\
+			2. Das System beendet Phase 4.\\
+			3. Das System übergibt Spielrunde dem nächsten Spieler und beginnt dort mit Phase 1.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{keine} 
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Drei neue Handkarten erworben. Aktiver Spieler gewechselt.
+		\item [Systemfunktionen:] \ref{funk:spielverw}.
+	\end{lhp}
+
+
+	\begin{lhp}{uc}{UC}{uc:bestenliste}
+		\item [Name:] Bestenliste.
+		\item [Ziel:] Das System zeigt eine Bestenliste an und hält diese aktuell.
+		\item [Akteure:] System.
+		\item [Vorbedingungen] Es existieren Einträge in der Datenbank.
+		\item [Eingabedaten:] Einträge bisher gespielter Spiele.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Das System stellt eine Anfrage an die Datenbank.\\
+			2. Das System zeigt die von jedem Spieler die Anzahl der gewonnen Spiele an.\\
+		\item [Ausnahmen:] \hfill
+				\begin{itemize} 
+					\item[] \textit{Keine Einträge:} Sind keine Einträge vorhanden, so zeigt das System "{}Keine Einträge vorhanden{}"{}.
+					
+				\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Bestenliste.	
+		\item [Systemfunktionen:] \ref{funk:bestenliste}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:chat}
+		\item [Name:] Chatverwaltung.
+		\item [Ziel:] Das System zeigt im Spielraum, in der Lobby und im Spiel ein Chatfenster.
+		\item [Akteure:] System, Spieler.
+		\item [Vorbedingungen] Es existiert ein Spiel oder ein Spielraum.
+		\item [Eingabedaten:] Chateingaben der Nutzer.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Das System zeigt einen Chat an.\\
+			2. Spieler können Chatnachrichten absenden.\\
+			3. Das System zeigt die Chatnachricht zusammen mit dem Spielernamen an.\\
+		\item [Ausnahmen:] \hfill
+				\begin{itemize} 
+					\item[] \textit{Keine Einträge:} Ist das Chatfenster leer, zeigt das System die Meldung "{}Keine Chatnachrichten vorhanden{}"{}.
+					
+				\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Chat mit aktuellen Chatnachrichten.	
+		\item [Systemfunktionen:] \ref{funk:chat}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:bot}
+		\item [Name:] Botverwaltung.
+		\item [Ziel:] Das System steuert einen Bot.
+		\item [Akteure:] System.
+		\item [Vorbedingungen] Es existiert ein Spiel oder ein Spielraum.
+		\item [Eingabedaten:] Chateingaben der Nutzer.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Das System steuert einen Bot nach den Phasen des Spiels:\ref{uc:phase1},\ref{uc:phase2}, \ref{uc:phase3} und \ref{uc:phase4} und nach vorgegebenen Schwierigkeitsstufen \ref{funk:bots}.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{keine} 
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Aktionen des Bots entsprechend der Phasen des Spiels und der Schwierigkeitsstufe des Bots.
+		\item [Systemfunktionen:] \ref{funk:bot}.
+	\end{lhp}
+
+
+	\begin{lhp}{uc}{UC}{uc:spielverwaltung}
+		\item [Name:] Spielverwaltung.
+		\item [Ziel:] Das System verwaltet die Phasen eines Spiels.
+		\item [Akteure:] System.
+		\item [Vorbedingungen] Das Spiel wurde aus dem Spielraum heraus gestartet.
+		\item [Eingabedaten:] Aktion des Spielers.
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Das System prüft, ob Nachziehstapel leer ist. 
+			2. Das Sysem erneuert bei Bedarf den Nachziehstapel mithilfe des Ablegestapels.
+			3. Das System prüft, wie oft der Ziehstapel erneuert wurde. Bei dreimaligem Leeren beendet das System nach Ablauf der Phasen 2-3 (Trigger in Phase 2 \ref{uc:phase2}) oder sofort (Trigger in Phase 4 \ref{uc:phase4}) das Spiel.\\
+			4. Das System meldet "{}Nach Phase 2 und 3 wird das Spiel beendet oder "Spiel wird beendet{}"{}.\\
+			5. Das System ruft usecase "{}Spiel beenden (\ref{uc:spielbeenden}){}" {} auf.\\
+		\item [Ausnahmen:] \hfill
+				\begin{itemize} 
+					\item[] \textit{keine}
+					
+				\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Nächste Phase des Spiels oder Beendigung des Spiels.	
+		\item [Systemfunktionen:] \ref{funk:spielraum}.
+	\end{lhp}
+
+	\begin{lhp}{uc}{UC}{uc:spielbeenden}
+		\item [Name:] Spiel beenden.
+		\item [Ziel:] Das System beendet das Spiel.
+		\item [Akteure:] System.
+		\item [Vorbedingungen] Der Ziehstapel wurde dreimal neu gemischt, die letzten Phasen der Runde sind beendet.
+		\item [Eingabedaten:] keine
+		\item [Beschreibung:] \hfill\\ \hfill\\
+			1. Das System bestimmt den Gewinner des Spiels.\\
+			2. Das System meldet den Spielern die Reihenfolge ihrer Platzierung.\\
+			3. Das System aktualisiert die Daten des Gewinners in der Datenbank.\\
+			4. Das System beendet das Spiel und leitet die Spieler in die Lobby weiter.\\
+		\item [Ausnahmen:] \hfill
+			\begin{itemize} 
+				\item[] \textit{keine}
+				
+			\end{itemize}
+		\item [Ergebnisse und Outputdaten:] Spieler befinden sich in der Lobby. "{}Gewonnene Spiele"{} des Gewinners in der Datenbank aktualisiert.
+		\item [Systemfunktionen:] \ref{funk:spielverw}.
+	\end{lhp}
+		
+\end{description}

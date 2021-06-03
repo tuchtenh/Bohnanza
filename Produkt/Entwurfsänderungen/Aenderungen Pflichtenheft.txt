@@ -1,0 +1,232 @@
+UC10
+original
+2. Der Spieler oeffnet den Registrieren-Dialog.
+7. Der System bestaetigt die erfolgreiche Registrierung und leitet
+den Spieler in die Lobby weiter.
+
+actual
+2.0 Der Spieler oeffnet den Serveradresse Setzen Dialog
+2.1 Der Spieler gibt Server Daten ein
+2.2 Der Spieler onet den Registrieren-Dialog.
+7.0 Der System bestaetigt die erfolgreiche Registrierung und leitet den Spieler zum Anmelde-dialog
+
+UC20
+original
+Ergebnisse und Outputdaten: Spieler ist im Lobby und sieht die Bestenliste.
+
+actual
+Ergebnisse und Outputdaten: Spieler ist im Lobby und Sieht online Spieler und Spielvorraeume
+
+UC30
+original
+4. Das System entfern alle Daten des Spielers aus der Datenbank
+und bewegt Spieler in den Vorraum.
+Ergebnisse und Outputdaten: Spieler ist im Vorraum, Spielerkonto
+wurde geloescht.
+
+actual
+4. Das System entfern alle Daten des Spielers aus der Datenbank
+und schliest den Client.
+Ergebnisse und Outputdaten: Client schliest und Spielerkonto
+wurde geloescht.
+
+
+UC40
+original
+2. Das System fragt, ob die Abmeldung wirklich erfolgen soll.
+3. Spieler bestatigt seine Intention.
+
+actual
+2. Das System meldet den Spieler vom Spiel ab.
+
+
+UC50
+original
+Eingabedaten: Name des Spielraumes, Anzahl der maximalen
+Spieler (3-5).
+
+actual
+Eingabedaten: Name des Spielraumes
+
+
+UC60
+original
+Eingabedaten: Name des Spielraumes, Anzahl der maximalen
+Spieler (3-5), Anzahl der Bots (1-4).
+
+actual
+Aenderung nur von Anzhal der Bots moeglich druch ein und austragen einzelne Bots
+
+
+UC70
+original
+Ziel: Der Spielraumersteller loscht den Spielraum.
+
+actual
+Funktion nicht vorhanden
+
+
+
+UC90
+original
+2. Das System fordert Bestatigung.
+3. Der Spieler bestatigt seine Intention.
+4. Das System meldet den anderen Teilnehmern "Spieler hat Spielraum
+verlassen".
+
+actual
+keine Bestaetigung
+keine Meldung im Chat
+
+
+
+UC100
+original
+2. Das System fragt nach, ob das Spiel gestartet werden soll.
+3. Spieler bestaetigt seine Intention.
+8. Das System zeigt eine Meldung SSpiel beginnt".
+
+actual
+keine Beestaetigung
+keine Meldung im Chat
+
+
+UC110
+original
+2. Das System fordert Bestatigung.
+3. Der Spieler bestaetigt seine Intention.
+4. Das System entfernt den Spieler aus dem Spiel und leitet ihn in
+die Lobby zuruck.
+5. Das System meldet den anderen Teilnehmern SSpieler hat das
+Spiel verlassen".
+6. Das System prueft, ob sich weniger als drei Spieler im Spielraum
+befinden und fuegt ggf. einen Bot hinzu.
+7. Das System prueft, ob der Startspieler das Spiel verlassen hat
+und bestimmt einen Startspieler links vom ehemaligen Startspieler.
+
+actual
+keine Bestaetigung
+Falls einer Spieler das Spiel verlaest, wird das Spiel Beendet und eine Meldung angezeigt.
+
+
+UC130
+original
+1. Spieler betatigt "Ernten"-Button.
+2. Das System fragt nach, ob die Bohnen geerntet werden sollen.
+3. Spieler bestatigt seine Intention.
+
+actual
+keine Bestaetigung
+
+
+UC160
+original
+3. Das System beendet die Phase, sobald alle Spieler ihre Karten
+angebaut haben.
+
+actual
+Das System beendet die Phase, sobald alle Spieler ihre Karten
+angebaut haben und der Aktive Spieler auf "neachste Phase" drueckt.
+
+
+UC170
+original
+2. Das System beendet Phase 4.
+
+actual
+Spielder beendet Phase 4 durch "Neachste Phase" Button
+
+
+
+UC190
+original
+3. Das System zeigt die Chatnachricht zusammen mit dem Spielernamen
+an.
+Ausnahmen:
+Keine Eintrage: Ist das Chatfenster leer, zeigt das System die
+Meldung "Keine Chatnachrichten vorhanden".
+
+actual
+3. Das System zeigt die Chatnachricht zusammen mit dem Spielernamen
+an und Sendezeit
+
+Ausnahmen:
+Keine Eintrage: Ist das Chatfenster leer, zeigt das System "Chatverlauf" im Chatfenster.
+
+
+
+UC210
+original
+3. Das System pruft, wie oft der Ziehstapel erneuert wurde. Bei
+dreimaligem Leeren beendet das System nach Ablauf der Phasen
+2-3 (Trigger in Phase 2 /UC140/) oder sofort (Trigger in Phase 4
+/UC170/) das Spiel.
+
+actual
+Wird nur in Phase 4 ueberprueft ob der Ziehstapel dreimal geleert war.
+
+
+
+UC220
+original
+2. Das System meldet den Spielern die Reihenfolge ihrer Platzierung.
+
+actual
+Nur der Gewinner wird mit einer Meldung bekannt gegeben also keine Reihenfolge mit Platzierung
+
+
+
+
+
+LD40
+Spielzeit nicht vorhanden
+
+
+
+
+/GUI10/ Name: Anmeldung
+Interface sieht anders aus
+
+/GUI20/ Name: Registrierung
+Interface sieht anders aus
+
+/GUI30/ Name: Lobby
+Interface sieht anders aus
+
+/GUI40/ Name: Spielraum erstellen
+Beschreibung: Ansicht, um einen Spielraum zu erstellen.
+
+nicht vorhanden
+
+
+/GUI50/ Name: Spielraum
+Beschreibung: Ansicht auf einen Spielraum.
+
+nicht vorhanden
+
+
+/GUI60/ Name: Spielubersicht
+Interface sieht anders aus
+
+/GUI70/ Name: Handelfenster
+Interface sieht anders aus
+
+/GUI80/ Name: Gewinnerubersicht
+Beschreibung: Ubersicht des Spielergebnisses.
+
+nicht vorhanden
+
+
+/GUI90/ Name: Gesamtubersicht
+Interface sieht anders aus
+
+
+
+
+
+
+
+
+
+
+

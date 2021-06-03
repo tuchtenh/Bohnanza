@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<Pane xmlns:fx="http://javafx.com/fxml" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="786.0" prefWidth="1054.0000999999975" xmlns="http://javafx.com/javafx"
+      fx:controller="GUI.SpielraumController">
+    <children>
+        <ImageView fx:id="feldSpieler" fitHeight="150.0" fitWidth="200.0" layoutX="410.0" layoutY="451.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bohenenfeld3.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spielerFeld1" fitHeight="87.0" fitWidth="75.0" layoutX="412.0" layoutY="483.0"
+                   onMouseClicked="#ernten" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spielerFeld2" fitHeight="87.0" fitWidth="75.0" layoutX="479.0" layoutY="483.0"
+                   onMouseClicked="#ernten" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text layoutX="322.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anzahl">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Text>
+        <Text fx:id="spielerFeldZahl1" layoutX="432.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+            <font>
+                <Font size="24.0" fx:id="x1"/>
+            </font>
+        </Text>
+        <Text fx:id="spielerFeldZahl2" font="$x1" layoutX="497.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="0"/>
+        <ImageView fx:id="feldSpieler1" fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="79.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bohenenfeld3.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spieler1Feld1" fitHeight="87.0" fitWidth="75.0" layoutX="42.0" layoutY="117.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spieler1Feld2" fitHeight="87.0" fitWidth="75.0" layoutX="105.0" layoutY="117.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spieler1FeldZahl1" font="$x1" layoutX="67.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="0"/>
+        <Text fx:id="spieler1FeldZahl2" font="$x1" layoutX="128.0" layoutY="228.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <Text fx:id="name1" layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Spieler 1: Spielername">
+            <font>
+                <Font size="16.0" fx:id="x2"/>
+            </font>
+        </Text>
+        <Text fx:id="name2" font="$x2" layoutX="276.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Spieler 2: Spielername"/>
+        <Text fx:id="name3" font="$x2" layoutX="534.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Spieler 3: Spielername"/>
+        <Text fx:id="name4" font="$x2" layoutX="771.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Spieler 4: Spielername"/>
+        <Text layoutX="39.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taler: ">
+            <font>
+                <Font size="19.0" fx:id="x3"/>
+            </font>
+        </Text>
+        <Text font="$x3" layoutX="280.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taler: "/>
+        <Text font="$x3" layoutX="534.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taler: "/>
+        <Text font="$x3" layoutX="773.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taler: "/>
+        <TextArea fx:id="chatAusgabe" editable="false" layoutX="833.0" layoutY="368.0" prefHeight="219.0"
+                  prefWidth="200.0" promptText="Chatverlauf"/>
+        <Separator layoutX="0.0" layoutY="579.0" prefHeight="32.0" prefWidth="1054.0"/>
+        <Button layoutX="837.0" layoutY="638.0" mnemonicParsing="false" onAction="#senden" prefHeight="25.0"
+                prefWidth="192.0" text="Senden"/>
+        <ImageView fx:id="ziehStapel" fitHeight="111.0" fitWidth="76.0" layoutX="503.0" layoutY="301.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Bilder/stapel.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="stapelKarte2" fitHeight="87.0" fitWidth="75.0" layoutX="426.0" layoutY="310.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="stapelKarte1" fitHeight="87.0" fitWidth="75.0" layoutX="357.0" layoutY="310.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <TextArea id="system" fx:id="systemNachrichten" editable="false" layoutX="17.0" layoutY="605.0"
+                  prefHeight="157.0" prefWidth="200.0" promptText="Systemnachrichten"/>
+        <Button layoutX="956.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0"
+                text="Verlassen"/>
+        <Button layoutX="956.0" layoutY="46.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0"
+                text="Bestenliste"/>
+        <Text font="$x3" layoutX="720.0" layoutY="627.0" scaleX="1.0" scaleY="0.9999951696421671" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Taler: "/>
+        <Button fx:id="handeln1" layoutX="34.0" layoutY="233.0" mnemonicParsing="false" onAction="#handelnSpieler1"
+                prefHeight="25.0" prefWidth="200.0" text="Handeln"/>
+        <Button fx:id="handeln2" layoutX="276.0" layoutY="233.0" mnemonicParsing="false" onAction="#handelnSpieler2"
+                prefHeight="25.0" prefWidth="200.0" text="Handeln"/>
+        <Button fx:id="handeln3" layoutX="523.0" layoutY="233.0" mnemonicParsing="false" onAction="#handelnSpieler3"
+                prefHeight="25.0" prefWidth="200.0" text="Handeln"/>
+        <Button fx:id="handeln4" layoutX="771.0" layoutY="233.0" mnemonicParsing="false" onAction="#handelnSpieler4"
+                prefHeight="25.0" prefWidth="200.0" text="Handeln"/>
+        <Text fx:id="spielerTaler" layoutX="768.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+            <font>
+                <Font size="17.0" fx:id="x4"/>
+            </font>
+        </Text>
+        <Text fx:id="spielerTaler1" font="$x4" layoutX="89.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="0"/>
+        <Text fx:id="spielerTaler2" font="$x4" layoutX="331.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="0"/>
+        <Text fx:id="spielerTaler3" font="$x4" layoutX="584.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="0"/>
+        <Text fx:id="spielerTaler4" font="$x4" layoutX="824.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="0"/>
+        <ImageView fx:id="spieler1Feld3" fitHeight="87.0" fitWidth="75.0" layoutX="171.0" layoutY="117.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spieler1FeldZahl3" font="$x1" layoutX="189.0" layoutY="228.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <ImageView fx:id="feldSpieler2" fitHeight="150.0" fitWidth="200.0" layoutX="277.0" layoutY="82.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bohenenfeld3.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spieler2Feld1" fitHeight="87.0" fitWidth="75.0" layoutX="284.0" layoutY="118.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spieler2Feld2" fitHeight="87.0" fitWidth="75.0" layoutX="347.0" layoutY="120.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spieler2FeldZahl1" font="$x1" layoutX="309.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <Text fx:id="spieler2FeldZahl2" font="$x1" layoutX="370.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <ImageView fx:id="spieler2Feld3" fitHeight="87.0" fitWidth="75.0" layoutX="413.0" layoutY="118.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spieler2FeldZahl3" font="$x1" layoutX="431.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <ImageView fx:id="feldSpieler3" fitHeight="150.0" fitWidth="200.0" layoutX="523.0" layoutY="82.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bohenenfeld3.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spieler3Feld1" fitHeight="87.0" fitWidth="75.0" layoutX="534.0" layoutY="118.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spieler3Feld2" fitHeight="87.0" fitWidth="75.0" layoutX="594.0" layoutY="120.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spieler3FeldZahl1" font="$x1" layoutX="556.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <Text fx:id="spieler3FeldZahl2" font="$x1" layoutX="617.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <ImageView fx:id="spieler3Feld3" fitHeight="87.0" fitWidth="75.0" layoutX="660.0" layoutY="118.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spieler3FeldZahl3" font="$x1" layoutX="678.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <ImageView fx:id="feldSpieler4" fitHeight="150.0" fitWidth="200.0" layoutX="771.0" layoutY="82.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bohenenfeld3.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spieler4Feld1" fitHeight="87.0" fitWidth="75.0" layoutX="779.0" layoutY="120.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spieler4Feld2" fitHeight="87.0" fitWidth="75.0" layoutX="842.0" layoutY="120.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spieler4FeldZahl1" font="$x1" layoutX="804.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <Text fx:id="spieler4FeldZahl2" font="$x1" layoutX="865.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <ImageView fx:id="spieler4Feld3" fitHeight="87.0" fitWidth="75.0" layoutX="908.0" layoutY="120.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spieler4FeldZahl3" font="$x1" layoutX="926.0" layoutY="231.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="0"/>
+        <ImageView fx:id="spielerFeld3" fitHeight="87.0" fitWidth="75.0" layoutX="548.0" layoutY="483.0"
+                   onMouseClicked="#ernten" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../../Desktop/bsp.PNG"/>
+            </image>
+        </ImageView>
+        <Text fx:id="spielerFeldZahl3" font="$x1" layoutX="564.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="0"/>
+        <TextField fx:id="chatEingabe" layoutX="833.0" layoutY="605.0" prefHeight="26.6015625" prefWidth="200.0"
+                   promptText="Deine Nachricht..."/>
+        <ListView fx:id="cardContainer" layoutX="239.0" layoutY="605.0" onMouseClicked="#anbauenFenster"
+                  orientation="HORIZONTAL" prefHeight="157.0" prefWidth="475.0"/>
+        <Text layoutX="836.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spieler am Zug:">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Text>
+        <Text fx:id="spielerAmZug" layoutX="836.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Spielername">
+            <font>
+                <Font name="System Bold" size="15.0"/>
+            </font>
+        </Text>
+        <Button fx:id="nextPhase" layoutX="917.0" layoutY="708.0" mnemonicParsing="false" onAction="#naechstePhase"
+                prefHeight="53.9609375" prefWidth="116.109375" text="Nächste Phase"/>
+        <Text layoutX="593.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anzahl Deckkarten:"/>
+        <ListView fx:id="anbauKarten" layoutX="17.0" layoutY="293.0" onMouseClicked="#anbauenAfterHandel"
+                  prefHeight="288.0" prefWidth="102.85400390625"/>
+        <Text layoutX="594.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anzahl Ablagestapel:"/>
+        <Text fx:id="anzahlAblagekarten" layoutX="712.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Text"/>
+        <Text fx:id="anzahlDeckkarten" layoutX="712.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Text"/>
+    </children>
+</Pane>

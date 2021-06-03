@@ -1,0 +1,236 @@
+\documentclass[10pt]{report}
+
+\begin{document}
+	\author{	Lukas Bayer \\
+				Nils Fitting \\
+ 				Marco T\"ucks \\
+ 				Alexander Wilhelm \\
+ 				Lukas Tuchtenhagen
+ 			}
+ 	\title{Systemtests}
+ 	\maketitle
+ 	\tableofcontents
+ 	
+ 	\chapter{Login}
+ 		\textbf{Vorbedingung}: Richtige IP-Adresse des Servers, Benutzername, Passwort und 							Passwortwiederholung eingegeben \\
+ 		\\
+ 		24.06. Spieler Registrieren \\
+ 		\\
+ 		\textsl{Benutzername nicht vergeben:} \\
+ 		Spieler kann sich erfolgreich registrieren. Er bekommt eine Meldung, dass Reg. Erfolgreich. Dazu 			muss der den Benutzernamen, Passwort und Passwort-Wdh. eingeben.  \\
+		Ergebnis: Benutzer in Datenbank registriert (gew. Ergebnis) \\
+		\\
+		\textsl{Benutzername vergeben:} \\
+		Spieler kann sich nicht registrieren. Meldung: Benutzername wahrscheinlich schon belegt. \\
+		Ergebnis: Benutzer nicht registriert. Meldung: Benutzername wahrscheinlich schon belegt. \\
+		\\
+		\textsl{Passwort stimmt nicht \"uberein:} \\
+		Spieler kann sich nicht registrieren. Meldung: Benutzername wahrscheinlich schon belegt. \\
+		Ergebnis: Benutzer nicht registriert (gew. Ergebnis) \\
+		\\
+		24.06. Spieler anmelden \\
+		\\
+		\textbf{Vorbedingung}: Richtige IP-Adresse des Servers, Benutzername und Passwort eingegeben \\
+		\\
+		\textsl{Benutzername und Passwort richtig:} \\
+		Spieler wird in Lobby weitergeleitet. \\
+		Ergebnis: Benutzer befindet sich in Lobby und ist im Chat eingeloggt. (gew. Ergebnis) \\
+		\\
+		\textsl{Benutzername oder Passwort falsch:} \\
+		Spieler bekommt Fehlermeldung (Benutzername oder Passwort falsch). \\
+		Ergebnis: Benutzer wird nicht weitergeleitet. Er befindet sich nicht im Chat oder der Lobby. 				(gew. Ergebnis) \\
+		\\
+		\textsl{Keine Eingabewerte:} \\
+		Spieler gibt keine Daten ein. Er bekommt eine Meldung (Fehler). \\
+		Ergebnis: Benutzer wird nicht weitergeleitet. Er befindet sich nicht im Chat oder der Lobby. 				(gew. Ergebnis) \\
+		\\
+		\textsl{Server nicht erreichbar (11.07):} \\
+		Spieler bekommt Meldung: Serveradresse nicht gefunden. \\
+		Ergebnis: Benutzer befindet sich nicht in der Lobby oder im Chat. Loginfenster bleibt bestehen 				(gew. Ergebnis). \\
+		\\
+		
+	\chapter{Lobby}
+		\textbf{Vorbedingung}: Spieler befindet sich in der Lobby. \\
+		\\
+		07.07. Bestenliste \\
+		\\
+		\textsl{Bestenliste anzeigen:} \\
+		Programm \"offnet neues Fenster und zeigt Bestenliste in absteigender Reihenfolge an. \\
+		Ergebnis: Fenster mit Bestenliste (gew. Ergebnis) \\
+		\\
+		08.07. Spielregeln \\
+		\\
+		\textsl{Spielregeln anzeigen:} \\
+		Spieler sieht Spielregeln in neuem Fenster. \\
+		Ergebnis: Fenster mit Spielregeln \"offnet sich (gew. Ergebnis). \\
+		\\
+		10.07. Spielvorraum \\
+		\\
+		\textbf{Vorbedingung}: Spieler befindet sich in Lobby \\
+		\\
+		\textsl{Name g\"ultig:} \\
+		Spieler gibt Name ein und dr\"uckt den Button. \\
+		Ergebnis: Spielvorraum mit entsprechendem Namen erstellt (gew. Ergebnis). \\
+		\\
+		\textsl{Name leer:} \\
+		Spieler bekommt Fehlermeldung. Kein Spielraum erstellt. \\
+		Ergebnis: Kein neuer Spielraum (gew. Ergebnis) \\
+		\\
+		\textsl{Beitreten erfolgreich:} \\
+		Spieler hat g\"ultigen Spielraum ausgew\"ahlt: Spieler wird in dem Spielvorraum 							geleitet. \\
+		Ergebnis: Spieler ist im Spielvorraum. Lobby zeigt Spieler im Spielvorraum und richtige Anzahl an 		Spielern. Fenster hat sich ge\"offnet (gew. Ergebnis). \\
+		\\
+		\textsl{Beitreten nicht erfolgreich:} \\
+		Spieler hat keinen g\"ultigen Spielraum ausgew\"ahlt und bekommt Fehlermeldung. \\
+		Ergebnis: Spieler befindet sich in Lobby und wurde keinem Spielvorraum zugewiesen (gew. 					Ergebnis). \\
+		\\
+		\textsl{Spielvorraum löschen:} \\
+		\textbf{Vorbedingung}: Gültiger Spielraum ausgewählt. Keine mensch. Spieler im Raum. \\
+		Spielraum wird gelöscht.\\
+		Ergebnis: Spielraumw wird aus der Liste der aktiven Räume entfernt (gew. Ergebnis). \\
+		\\
+		10.07. Chat \\
+		\\
+		\textbf{Vorbedingung}: Spieler befindet sich in Lobby \\
+		\\
+		\textsl{Nachricht abgeschickt:} \\
+		Spieler gibt Nachricht ein und diese wird auf allen Clients angezeigt. \\
+		Ergebnis: Nachricht ist auf allen Clients zu sehen (gew. Ergebnis). \\
+		\\
+		11. 07. Abmelden \\
+		\\
+		\textbf{Vorbedingung}: Spieler befindet sich in Lobby \\
+		\\
+		\textsl{Spieler abmelden:} \\
+		Spieler wird im Chat abgemeldet und Fenster wird geschlossen. \\
+		Ergebnis: Spieler befindet sich nicht mehr im Chat und Programm wird geschlossen. \\
+		\\
+		Spieler l\"oschen \\
+		\\
+		\textbf{Vorbedingung}: Passwort eingegeben \\
+		\\
+		\textsl{Passwort stimmt:} \\
+		Spieler wird gel\"oscht und aus der Lobby entfernt. Das Spiel wird geschlossen. \\
+		Ergebnis: Benutzer wird aus Datenbank entfernt. Spiel wird geschlossen (gew. Ergebnis). \\
+		\\
+		\textsl{Passwort stimmt nicht:} \\
+		Spieler bekommt Meldung (Passwort falsch). Keine weitere Aktion. \\
+		Ergebnis: Spieler nicht aus DB entfernt und Spiel nicht geschlossen (gew. Ergebnis). \\
+		\\
+		
+	\chapter{Spielvorraum}
+		\textbf{Vorbedingung}: Spieler befindet sich im Spielvorraum \\
+		\\
+		\\08.07. Bots \\
+		\\
+		\textsl{Bots hinzuf\"ugen:} \\
+		Spieler w\"ahlt leichten oder schweren Bot aus und f\"ugt ihn hinzu. \\
+		Ergebnis: Bot Leicht oder Schwer wird hinzugef\"ugt (gew. Ergebnis). \\
+		\\
+		\textsl{Bots entfernen:} \\
+		\\
+		\textbf{Vorbedingung}: Bot ausgew\"ahlt. \\
+		\\
+		Ausgew\"ahlter Bot wird entfernt. \\
+		Ergebnis: Bot wurde entfernt (gew. Ergebnis). \\
+		\\
+		\textsl{Bot entfernen (nicht ausgew\"ahlt):} \\
+		Spieler kann Bot nicht entfernen und bekommt eine Fehlermeldung. \\
+		Ergebnis: Bot nicht entfernt (gew. Ergebnis). \\
+		\\
+		Spiel \\
+		\\ 
+		\textsl{Spiel Starten:} \\
+		\\
+		\textbf{Vorbedingung}: Min. 3 Spieler (inkl. Bots). \\
+		\\
+		Spiel wird gestartet. Bei jedem Client \"offnet sich das Spielfenster. \\
+		Ergebnis: Spielfenster erscheint auf jedem Client (gew. Ergebnis). \\
+		\\
+		\textsl{Spiel starten (nicht gen\"ugend Spieler):} \\
+		Spieler kann Spiel nicht starten. Bekommt Fehlermeldung. \\
+		Ergebnis: Spiel nicht gestartet (gew. Ergebnis). \\
+		\\
+		\textsl{Spielraum verlassen:}  \\
+		Spieler verl\"asst Spielraum und wird in Lobby weitergeleitet. \\
+		Ergebnis: Spieler befindet sich in Lobby. Spielraumanzahl wird angepasst (gew. Ergebnis). \\
+		\\
+		
+	\chapter{Spielraum}
+		\textbf{Vorbedingung}: keine \\
+		\\
+		10.07 \\
+		\\
+		\textsl{Spieler am Zug (Phase 1):} \\
+		Spieler kann 2 Handkarten anbauen.  \\
+		Ergebnis: Handkarte wird entfernt und dem Bohnenfeld hinzugef\"ugt. Anzahl der Karten auf Feld 				wird erh\"oht (gew. Ergebnis). \\
+		\\
+		\textsl{Nächste Phase (P1):} \\
+		\textbf{Vorbedingung}: Handkarte angebaut \\
+		Spieler kann in nächste Phase übergehen, indem er den Button drückt.  \\
+		Ergebnis: P2 wird eingeleitet. Systemnachrichten aktualisier (gew. Ergebnis)t. \\
+		\\
+		\textsl{Nächste Phase - Keine Handkarten angebaut (P1):} \\
+		Spielerdrückt Button und erhält Fehlermeldung "Du musst mindestens die erste Handkarte anbauen".  \\
+		Ergebnis: P2 wird nicht eingeleitet. \\
+		\\
+		\textsl{Spieler am Zug (Phase 2):} \\
+		Handelsfenster \"offnet sich. Spieler kann handeln. \\
+		Ergebnis: Fenster \"offnet sich. Nach Erfolg: Handel wird Fenster geschlossen und gehandelte Karten 		werden den jeweiligen Spielern zugeteilt (gew. Ergebnis). \\
+		\\
+		\textsl{Nächste Phase (P2):} \\
+		Spieler kann in nächste Phase übergehen, indem er den Button drückt.  \\
+		Ergebnis: P3 wird eingeleitet.Feldkarten und ggf. gehandelte Karten werden der Anbauliste hinzugefügt. Systemnachrichten aktualisiert (gew. Ergebnis). \\
+		\\
+		\textsl{Spieler am Zug (Phase 3):} \\
+		Spieler baut gehandelte Karten an. \\
+		Ergebnis: Anbaufelder ist leer. Bohnen wurden angepflanzt. Anzahl der Karten auf dem Feld wurde 			erh\"oht (gew. Ergebnis). \\
+		\\
+		\textsl{Nächste Phase (P3):} \\
+		\textbf{Vorbedingung}: Anbaukarten angebaut \\
+		Spieler kann in nächste Phase übergehen, indem er den Button drückt.  \\
+		Ergebnis: P4 wird eingeleitet. Systemnachrichten aktualisiert (gew. Ergebnis). \\
+		\\
+		\textsl{Nächste Phase - Anliste nicht leer (Spieler/Mitspieler) (P3):} \\
+		Spielerdrückt Button und erhält Fehlermeldung "Spieler XY hat noch nicht alles angebaut ".  \\
+		Ergebnis: P4 wird nicht eingeleitet. \\
+		\\
+		\textsl{Spieler am Zug (Phase 4):} \\
+		Spieler erhält 3 neue Handkarten. Nächster Spieler ist an der Reihe. \\
+		Ergebnis: Spieler besitzt 3 neue Handkarten. N\"achste-Phase-Button verschwindet. Textfeld "Aktiver Spieler" aktualisier (gew. Ergebnis).	\\
+		\\
+		\textsl{Bot Leicht:}  \\
+		Bot durchläuft alle Phasen des Spiels. Lässt kein Handeln zu. \\
+		Ergebnis: Spiel läuft fl\"ussig durch die Phasen. Die Z\"uge und Karten des Bots sind dem Nutzer 			ersichtlich (gew. Ergebnis). \\
+		\\
+		\textsl{Bot Schwer:} \\
+		Bot durchläuft alle Phasen des Spiels und nimmt Handel an. \\
+		Ergebnis: Spiel läuft fl\"ussig durch die Phasen. Die Z\"uge und Karten des Bots sind dem Nutzer 			ersichtlich (gew. Ergebnis). \\
+		\\
+		\textsl{Bohnenfeld abbauen:} \\
+		\textbf{Vorbedingung}: Bohnenschutzregel erfüllt \\
+		Spieler kann Bohnenfeld durch Klick darauf abbauen. \\
+		Ergebnis: Karten vom Feld entfernt. Ablagestapelkartenzahl erhöht. Taler ggf. erhöht (gew. Ergebnis).\\
+		\\
+		\textsl{Spiel beenden (seitens des Nutzers):} \\
+		Spieler verlässt Spiel. \\
+		Ergebnis: Spiel wird beendet und geschlossen. Clients bekommen Meldung, dass das Spiel 						geschlossen wird (gew. Ergebnis). \\
+		\\
+		\textsl{Spiel beendet (seitens des Spielemanagers (G\"ultiges Ende)):} \\
+		System zeigt Meldung und gibt gewinner bekannt. \\
+		Ergebnis: Spiel wird geschlossen. Spieler befinden sich in Lobby und Bots werden gel\"oscht (gew. 		Ergebnis). \\
+		\\
+		12.07 \\
+		\\
+		\textsl{Systemnachrichten:} \\
+		System zeigt im Fenster Systemnachrichten die verschiedenen Phasen des Spiels und den aktiven Spieler. \\
+		Ergebnis: Das System aktualisiert nach jeder Handlung eines Spielers/Bots die Systemanchrichten (gew. Ergebnis).\\
+		\\
+		\textsl{Handeln:} \\
+		System öffnet bei Handspartnern das Handelfenster. Spieler können Karten hinzufügen und entfernen. Aktiver Spieler kann Handelsangebot unterbreiten. \\
+		Ergebnis: Annahme des Handels - Karten werden ggf. aus Handkarten und Feldkarten entfernt und dem anderen Spieler in die Anbauliste hinzugefügt, Handelsfenster geschlossen. 			Ablehnen - Fenster werden vom System geschlossen. Keine Karten hinzugefügt oder entfernt (gew. Ergebnis).\\
+		\\
+		Chat, Bestenliste, Spielregeln (siehe Lobby) - gew. Ergebnis
+		\\
+
+\end{document}

@@ -1,0 +1,297 @@
+\chapter{Hauptteil}
+
+\section{Einführung}
+
+Wie im Pflichtenheft bereits beschrieben, sollen voll funktionsfähige Bots modelliert werden. Oberstes Ziel bei der Modellierung ist es dabei, einen flüssigen und logischen Spielablauf zu gewährleisten. Dabei sind zunächst zwei Schwierigkeitsstufen von Bots geplant: Ein einfacher Bot, der lediglich dem logischen Spielablauf folgt und nicht das primäre Ziel verfolgt, möglichst viele Bohnentaler zu erspielen. Zusätzlich wird es einen intelligenten normal-schweren Bot geben, dessen Ziel es ist, neben der Gewährleistung eines flüssigen Spielablaufs, auch einige Bohnentaler zu erspielen. Eine Strategie, mit der möglichst viele Bohnentaler erspielt werden können, konnte in eigenen Spielsimulationen noch nicht gefunden werden. Es wird daher darauf geachtet, dass der Bot logischen Handlungen folgt, um eine gewisse Anzahl an Bohnentalern zu sammeln.
+
+\section{Aufgabenbereiche der Bots}
+
+\newcounter{ab}\setcounter{ab}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{ab}{AB}{ab:Spielraum}
+		\item [Name:] Spielraum
+		\item [Beschreibung:] Im Spielvorraum können Bots für das spätere Spiel hinzugefügt werden.
+		\item [Aufgabe der Bots:] Keine. Die Bots werden in diesem Teil des Programms keine Funktion besitzen. Sie dienen lediglich als Platzhalter.
+	\end{lhp}
+
+	\begin{lhp}{ab}{AB}{ab:Spiel}
+		\item [Name:] Spiel
+		\item [Beschreibung:] Im Spiel werden die Bots, je nach Schwierigkeitsgrad, einen flüssigen Spielablauf gewährleisten und versuchen, Bohnentaler zu erspielen.
+		\item [Aufgabe der Bots:] Die Bots werden den Phasen des Spiels folgen. Je nach Phase müssen die Bots also Bohnenkarten anbauen, abbauen oder handeln. 
+	\end{lhp}
+		
+
+		
+\end{description}
+
+\section{Einfacher Bot}
+
+Der einfache Bot soll primär einen flüssigen Spielablauf gewährleisten. Dabei kann er eine kleine Anzahl an Bohnentalern erspielen.\\
+\\ 
+
+\hfill\\ Phasenunspezifische Aktionen:\\
+\newcounter{a}\setcounter{a}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{a}{A}{a:Anbauen }
+		\item [Name:] Anbauen(Karte)
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape gleiche Karte auf Anbaufeld}, dann 
+		{\itshape baue Karte auf Feld an}.\\
+		sonst {\itshape baue Karte auf freiem Feld an}.
+		
+	\end{lhp}
+	
+	\begin{lhp}{a}{A}{a:Bohnenernte}
+		\item [Name:] Bohnenernte
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape Stapel mit mehr als einer Karte vorhanden}, dann 
+		{\itshape baue Stapel ab},\\
+		sonst {\itshape baue beliebigen Stapel ab}.
+		
+	\end{lhp}
+
+	\begin{lhp}{a}{A}{a:Phase beenden}
+	\item [Name:] Phase beenden
+	\item [Handlungen:]\hfill\\ 
+	\\Teile System mit, dass Phase beendet wird.
+	\end{lhp}
+
+\end{description}
+
+
+\hfill\\ Phase 1:\\
+\newcounter{p1}\setcounter{p1}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{p1}{P1}{p1:Anbauen }
+		\item [Name:] Anbauen
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape Bohnenfeld frei}, dann 
+     	{\itshape Handkarte anbauen}.\\
+     	\\Wenn {\itshape Bohnenfeld nicht frei}, dann 
+		{\itshape Bohnenernte}.\\
+		\\Wenn {\itshape Bohnenernte} ausgeführt, dann 
+		{\itshape Handkarte anbauen}.\\
+		
+	\end{lhp}
+
+	\begin{lhp}{p1}{P1}{p1:Phase beenden}
+		\item [Name:] Phase beenden
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape Handkarte angebaut}, dann 
+		{\itshape Phase beenden}.\\
+	\end{lhp}	
+\end{description}
+
+\hfill\\ Phase 2:\\
+\newcounter{p2}\setcounter{p2}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{p2}{P2}{p2: Keine Aktion}
+		\item [Name:] Nichts.
+		\item [Handlungen:]\hfill\\ 
+		Keine - der einfache Bot soll nicht handeln und das System deckt zwei neue Karten vom Nachziehstapel auf. Er baut die erworbenen Karten aus P2 dann in P3 an.
+	\end{lhp}
+	
+	
+\end{description}
+
+\hfill\\ Phase 3:\\
+\newcounter{p3}\setcounter{p3}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{p3}{P3}{P3:Anbauen}
+		\item [Name:] Anbauen
+		\item [Handlungen:]\hfill\\ 
+		\\Wiederhole solange, bis {\itshape Feldkarten angebaut}:
+		\\Wenn {\itshape Bohnenfeld frei}, dann 
+		{\itshape Feldkarte anbauen}.\\	
+		\\Wenn {\itshape Bohnenfeld nicht frei}, dann 
+		{\itshape Bohnenernte}.\\
+		\\Wenn {\itshape Bohnenernte} ausgeführt, dann 
+		{\itshape Feldkarte anbauen}.\\
+		
+	\end{lhp}
+	
+	\begin{lhp}{p3}{P3}{p3:Phase beenden}
+		\item [Name:] Phase beenden
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape Feldkarten angebaut}, dann 
+		{\itshape Phase beenden}.\\
+	\end{lhp}
+	
+\end{description}
+
+
+\hfill\\ Phase 4:\\
+\newcounter{p4}\setcounter{p4}{10}
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{p4}{P4}{p4: Keine Aktion}
+		\item [Name:] Nichts.
+		\item [Handlungen:]\hfill\\ 
+		Keine - der Bot erhält drei neue Handkarten vom System. Danach wird die nächste Spielrunde eingeleitet. 
+	\end{lhp}
+	
+\end{description}
+
+
+
+\section{Normalschwerer Bot}
+
+Der normalschwere Bot soll einen flüssigen Spielverlauf gewährleisten und Bohnentaler sammeln. Er verfolgt dabei die Strategie, Stapel sofort abzubauen, sobald der Stapel Punkte bringt. Er beachtet außerdem seine Handkarten und die Karten des Nachziehstapels. Ebenfalls kann der Bot handeln. \\
+\\ 
+
+\hfill\\ Phasenunspezifische Aktionen:\\
+
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{a}{A}{a:Counter}
+		\item [Name:] Counter
+		\item [Handlungen:]\hfill\\ 
+		Der Bot besitzt einen Counter für alle gespielten Karten und Karten, die sich noch auf dem Nachziehstapel befinden.
+		
+	\end{lhp}
+	
+	\begin{lhp}{a}{A}{a:Anbauen}
+		\item [Name:] Anbauen(Karte)
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape gleiche Karte auf Anbaufeld}, dann 
+		{\itshape baue Karte auf Feld an}.\\
+		sonst {\itshape baue Karte auf freiem Feld an}.
+		
+	\end{lhp}
+	
+	\begin{lhp}{a}{A}{a:Bohnenernte_gez}
+		\item [Name:] Bohnenernte (gezwungen)
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape mehrere Stapel mit mehr als einer Karte vorhanden}, dann 
+		{\itshape baue Stapel ab mit geringster Wahrscheinlichkeit gefüllt zu werden},\\
+		sonst {\itshape baue Stapel mit mehreren Karten ab}.
+	\end{lhp}
+
+	\begin{lhp}{a}{A}{a:Bohnenernte}
+		\item [Name:] Bohnenernte 
+		\item [Handlungen:]\hfill\\ 
+		\\Prüfe nach jeder Phase: Wenn {\itshape Stapel vorhanden, der Punkte bringt}, dann 
+		{\itshape baue Stapel ab},\\		
+	\end{lhp}
+	
+	\begin{lhp}{a}{A}{a:Phase beenden}
+		\item [Name:] Phase beenden
+		\item [Handlungen:]\hfill\\ 
+		\\Teile System mit, dass Phase beendet wird.
+	\end{lhp}
+
+	\begin{lhp}{a}{A}{a:Handeln}
+		\item [Name:] Handeln
+		\item [Handlungen:]\hfill\\ 
+		\\Teile System mit, dass folgende Karten zum Handel angeboten werden: {\itshape gezogene nicht benötigte Karten von Nachziehstapel und nicht benötigte Handkarten}.
+		\\Warte 30 Sekunden:
+		Wenn {\itshape angehandelt}, dann {\itshape biete ausgewählte Karte zum Tausch an}, 
+		\\sonst {\itshape beende Phase}.
+	\end{lhp}
+	
+\end{description}
+
+
+\hfill\\ Phase 1:\\
+
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{p1}{P1}{p1:Anbauen}
+		\item [Name:] Anbauen
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape Bohnenfeld frei}, dann 
+		{\itshape Handkarte anbauen}.\\
+		\\Wenn {\itshape Bohnenfeld nicht frei}, dann 
+		{\itshape Bohnenernte(gezwungen)}.\\
+		\\Wenn {\itshape Bohnenernte} ausgeführt, dann 
+		{\itshape Handkarte anbauen}.\\
+		\\Wenn {\itshape nächste Handkarte} anbaubar, dann 
+		{\itshape Handkarte anbauen}.\\
+	\end{lhp}
+	
+	\begin{lhp}{p1}{P1}{p1:Phase beenden}
+		\item [Name:] Phase beenden
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape Handkarte angebaut}, dann 
+		{\itshape Phase beenden}.\\
+	\end{lhp}	
+\end{description}
+
+\hfill\\ Phase 2:\\
+
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{p2}{P2}{p2: Handeln}
+		\item [Name:] Handeln
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape nachgezogene Karten anbaubar}, dann 
+		{\itshape nehme Karten},\\
+		\\sonst wenn {\itshape Handkarten nicht Karten auf Bohnenfeld entsprechen}, dann
+		\\{\itshape biete Handel der nachgezogenen Karten an}, 
+		\\sonst {\itshape biete Karten zum Verschenken an}.
+		\\Wenn {\itshape Bohnenfeld bepflanzt und Handkarten entsprechen nicht Karten auf Bohnenfeld}, dann 
+		{\itshape biete Handel an}.\\
+	\end{lhp}
+
+	\begin{lhp}{p2}{P2}{p2:Phase beenden}
+		\item [Name:] Phase beenden
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape Funktion Handeln abgeschlossen}, dann 
+		{\itshape Phase beenden}.\\
+	\end{lhp}
+	
+\end{description}
+
+\hfill\\ Phase 3:\\
+
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{p3}{P3}{P3:Anbauen}
+		\item [Name:] Anbauen
+		\item [Handlungen:]\hfill\\ 
+		\\Wiederhole solange, bis {\itshape Feldkarten angebaut}:
+		\\Wenn {\itshape Bohnenfeld frei}, dann 
+		{\itshape Feldkarte anbauen}.\\	
+		\\Wenn {\itshape Bohnenfeld nicht frei}, dann 
+		{\itshape Bohnenernte(gezwungen)}.\\
+		\\Wenn {\itshape Bohnenernte} ausgeführt, dann 
+		{\itshape Feldkarte anbauen}.\\
+	\end{lhp}
+	
+	\begin{lhp}{p3}{P3}{p3:Phase beenden}
+		\item [Name:] Phase beenden
+		\item [Handlungen:]\hfill\\ 
+		\\Wenn {\itshape Feldkarten angebaut}, dann 
+		{\itshape Phase beenden}.\\
+	\end{lhp}
+	
+\end{description}
+
+
+\hfill\\ Phase 4:\\
+
+
+\begin{description}[leftmargin=5em, style=sameline]
+	
+	\begin{lhp}{p4}{P4}{p4: Keine Aktion}
+		\item [Name:] Nichts.
+		\item [Handlungen:]\hfill\\ 
+		Keine - der Bot erhält drei neue Handkarten vom System. Danach wird die nächste Spielrunde eingeleitet. 
+	\end{lhp}
+	
+\end{description}

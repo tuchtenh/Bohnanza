@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml" prefHeight="839.0" prefWidth="1012.0"
+          style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx"
+          fx:controller="GUI.LobbyController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="417.0" minWidth="10.0" prefWidth="36.66664632161458"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="547.6666984558105" minWidth="10.0"
+                           prefWidth="392.33335367838544"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.00000000000006" minWidth="10.0"
+                           prefWidth="322.00000000000006"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="441.6666259765625" minWidth="10.0" prefWidth="392.333251953125"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="5.3333740234375" prefWidth="54.666748046875"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="31.0" minHeight="0.33334859212239465" prefHeight="10.333333333333332"
+                        vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="52.333318074544266" minHeight="10.0" prefHeight="42.33333333333333"
+                        vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="592.0" minHeight="10.0" prefHeight="574.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="556.0" minHeight="2.0" prefHeight="36.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="542.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="542.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <Button mnemonicParsing="false" onAction="#abmelden" prefHeight="25.0" prefWidth="79.0" text="Abmelden"
+                GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets right="5.0"/>
+            </GridPane.margin>
+        </Button>
+        <TextArea fx:id="chatAusgabe" editable="false" focusTraversable="false" prefHeight="490.0" prefWidth="328.0"
+                  text="&#10;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets right="5.0"/>
+            </GridPane.margin>
+        </TextArea>
+        <Button mnemonicParsing="false" onAction="#senden" prefHeight="25.0" prefWidth="365.0" text="Senden"
+                GridPane.columnIndex="3" GridPane.rowIndex="7">
+            <GridPane.margin>
+                <Insets right="5.0"/>
+            </GridPane.margin>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#bestenliste" prefHeight="20.9609375" prefWidth="133.0"
+                text="Bestenliste" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+                GridPane.vgrow="ALWAYS">
+            <GridPane.margin>
+                <Insets left="5.0"/>
+            </GridPane.margin>
+        </Button>
+        <Label text="Chat:" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <font>
+                <Font name="System Bold" size="15.0"/>
+            </font>
+        </Label>
+        <Button mnemonicParsing="false" onAction="#spielregeln" prefHeight="25.0" prefWidth="144.0" text="Spielregeln"
+                GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+                GridPane.vgrow="ALWAYS">
+            <GridPane.margin>
+                <Insets right="30.0"/>
+            </GridPane.margin>
+        </Button>
+        <TextField fx:id="chatEingabe" onAction="#onEnter" prefHeight="53.0" prefWidth="214.0" GridPane.columnIndex="3"
+                   GridPane.rowIndex="6">
+            <GridPane.margin>
+                <Insets right="5.0" top="5.0"/>
+            </GridPane.margin>
+        </TextField>
+        <Label text="Spieler online:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets right="10.0"/>
+            </GridPane.margin>
+            <font>
+                <Font name="System Bold" size="15.0"/>
+            </font>
+        </Label>
+        <HBox fx:id="hbox" prefHeight="440.0" prefWidth="296.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <children>
+                <ListView id="lv_RaumListe" fx:id="listeRaeume" onMouseClicked="#listeRaeumeOnClick" onScroll="#scroll"
+                          prefHeight="170.0" prefWidth="309.0">
+                    <HBox.margin>
+                        <Insets left="5.0"/>
+                    </HBox.margin>
+                </ListView>
+                <ListView fx:id="anzahl" focusTraversable="false" prefHeight="446.0" prefWidth="76.0"/>
+            </children>
+        </HBox>
+        <Button mnemonicParsing="false" onAction="#loescheSpieler" prefHeight="25.0" prefWidth="149.0"
+                text="Account löschen" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS"
+                GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+        <TextField fx:id="neuerRaumName" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <HBox prefHeight="54.0" prefWidth="329.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <children>
+                <Button fx:id="join" alignment="CENTER" mnemonicParsing="false" onAction="#joinRaum" prefHeight="25.0"
+                        prefWidth="108.0" text="Beitreten" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets left="5.0" top="5.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="löschen" mnemonicParsing="false" onAction="#loescheRaum" prefHeight="25.0"
+                        prefWidth="101.0" text="Löschen">
+                    <HBox.margin>
+                        <Insets left="5.0" top="5.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button id="spielvorraumErstellen" mnemonicParsing="false" onAction="#spielvorraumErstellen"
+                        prefHeight="25.0" prefWidth="167.0" text="Neuen Spielraum:">
+                    <HBox.margin>
+                        <Insets left="5.0" top="5.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aktive Spielräume:" GridPane.columnIndex="1"
+              GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets left="5.0"/>
+            </GridPane.margin>
+            <font>
+                <Font name="System Bold" size="15.0"/>
+            </font>
+        </Text>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lobby" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+              GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+                <Font name="System Bold" size="32.0"/>
+            </font>
+        </Text>
+        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="166.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="32.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="467.0" minHeight="10.0" prefHeight="397.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="281.0" minHeight="10.0" prefHeight="176.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <ListView id="lv_SpielerListe" fx:id="listeSpieler" prefHeight="176.0" prefWidth="148.0"
+                                  GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </ListView>
+                        <Text fx:id="spielerImRaum" strokeType="OUTSIDE" strokeWidth="0.0" text="Spieler im Raum:"
+                              GridPane.valignment="BOTTOM">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </Text>
+                    </children>
+                </GridPane>
+                <ListView fx:id="activePlayer" prefHeight="573.0" prefWidth="114.0"/>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <GridPane.margin>
+                <Insets right="5.0"/>
+            </GridPane.margin>
+        </HBox>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BOHNANZA" GridPane.columnIndex="2"
+              GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+            <font>
+                <Font name="System Bold" size="44.0"/>
+            </font>
+        </Text>
+        <Button fx:id="minimize" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Minimieren"
+                GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+                GridPane.valignment="CENTER">
+            <GridPane.margin>
+                <Insets left="90.0"/>
+            </GridPane.margin>
+        </Button>
+    </children>
+</GridPane>

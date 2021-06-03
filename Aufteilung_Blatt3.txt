@@ -1,0 +1,7 @@
+Testfälle				//Lukas T, Alex
+Documentation			//Lukas T, Alex
+Datenbank				//Lukas B, Nils
+LogIn					//Lukas B, Nils
+Oberfläche				//Marco
+Exceptions				//Marco, Nils
+Grundgerüst fixen		//Lukas B

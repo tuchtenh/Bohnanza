@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="32.0" layoutY="27.0" prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="198.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <Label layoutX="37.0" layoutY="8.0" text="//Name des Spielraums" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Label layoutX="33.0" layoutY="73.0" text="// Liste der Spielernamen" />
+                        <Button layoutX="39.0" layoutY="123.0" mnemonicParsing="false" text="Spielraum beitreten" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
+      <Label layoutX="265.0" layoutY="119.0" text="Weitere Spielräume............................................................." />
+      <Button layoutX="14.0" layoutY="343.0" mnemonicParsing="false" text="Neuen Spielraum erstellen" />
+      <Button layoutX="586.0" layoutY="343.0" mnemonicParsing="false" text="Abmelden" />
+      <TextArea layoutY="385.0" prefHeight="68.0" prefWidth="671.0" text="//Chatfenster&#10;" />
+   </children>
+</Pane>

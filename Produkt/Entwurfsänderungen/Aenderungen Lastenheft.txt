@@ -1,0 +1,28 @@
+Alle Anforderungen des Warteraums wurden nicht umgesetzt. Das heiﬂt:
+
+/WR10/ Name: Hintergrundmusik
+nicht vorhanden
+
+/WR20/ Name: Stats der Spieler
+Beschreibung: In der Bestenliste soll es moeglich sein, eine erweiterte
+Ansicht mit gewonnenen und verlorenen Spielen des Spielers
+zu sehen, sowie dessen hochst gewonnenes Spiel.
+
+verlorenen Spiele nicht vorhanden
+
+
+/WR30/ Name: Freundesliste
+Nicht vorhanden
+
+
+/WR40/ Name: Bots
+Beschreibung: Es sollen mehr als zwei Schwierigkeitsstufen fuer
+Bots hinzugefuegt werden.
+
+nicht vorhanden
+
+
+/WR50/ Name: Tutorial
+nicht vorhanden
+
+

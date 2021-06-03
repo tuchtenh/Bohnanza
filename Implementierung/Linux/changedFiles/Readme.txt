@@ -1,0 +1,1 @@
+Änderungen sind wahrscheinlich nicht zwingend erforderlich - Probleme mit jre unter Arch
